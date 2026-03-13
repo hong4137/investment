@@ -518,7 +518,7 @@ function render() {
           </tr>
           <tr class="row-highlight">
             <td>🗓️ <strong>작성 시점 주가</strong></td>
-            ${filtered.map(() => `<td class="price-null">—</td>`).join("")}
+            ${filtered.map(r => `<td><span class="conviction-cell" style="color:var(--text-muted)">${r.price_levels.current_price_at_writing || '—'}</span></td>`).join("")}
           </tr>
         </tbody>
       </table>
