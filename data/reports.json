@@ -102,6 +102,36 @@
   },
   {
     "meta": {
+      "ticker": "AMAT",
+      "company_name": "Applied Materials",
+      "report_date": "2026-03-14",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "9/10",
+      "conviction_numeric": 9,
+      "winning_probability": "85%"
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": null,
+      "bull_target": null,
+      "hard_stop_loss": "$360.00",
+      "ideal_entry": "$330~$340",
+      "primary_target": "$320.00"
+    },
+    "key_risks": [
+      "4월 14일 관세 협상 리스크",
+      "메모리 가격 폭등 OEM 상각",
+      "규제 조사 및 내부자 대량 매도"
+    ],
+    "key_catalysts": [],
+    "one_thing": "화려한 2nm GAA 및 HBM AI 인프라 서사로 포장된 33배의 극단적 고평가(Priced for Perfection) 이면에는, 4월 14일 관세 폭탄 리스크, 파생 시장의 감"
+  },
+  {
+    "meta": {
       "ticker": "AMZN",
       "company_name": "Amazon.com",
       "report_date": "2026-02-08",
