@@ -69,6 +69,39 @@
   },
   {
     "meta": {
+      "ticker": "AMAT",
+      "company_name": "Applied Materials",
+      "report_date": "2026-02-16",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "4.0 / 10",
+      "conviction_numeric": 4,
+      "winning_probability": "45%"
+    },
+    "price_levels": {
+      "accumulate_zone": "$280 - $300",
+      "base_target": "$350 - $370",
+      "bear_case_floor": "$280 - $300",
+      "bull_target": "$420 - $450",
+      "hard_stop_loss": "$324",
+      "ideal_entry": "$280 - $300",
+      "primary_target": "$350 - $370"
+    },
+    "key_risks": [
+      "내부자 매도 시그널",
+      "중국 매출 감소 위험",
+      "재고자산 적체 위험"
+    ],
+    "key_catalysts": [
+      "기가 사이클 확장",
+      "기술 독점력 강화"
+    ],
+    "one_thing": "AI라는 '내러티브(Narrative)'가 반도체 장비업 특유의 시클리컬(Cyclical) 본성을 마비시켰다. 역사적 평균 P/E(19배)를 두 배나 초과한 37배의 멀티플은, 중국 매출 감소와 내부자 매도라는 '진실'을 외면한 채 오직 희망 회로만으로"
+  },
+  {
+    "meta": {
       "ticker": "AMZN",
       "company_name": "Amazon.com",
       "report_date": "2026-02-08",
