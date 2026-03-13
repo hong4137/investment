@@ -1,0 +1,42 @@
+[
+  {
+    "meta": {"ticker":"MU","company_name":"Micron Technology","report_date":"2026-01-05","report_type":"분석 보고서"},
+    "verdict": {"opinion":"Strong Buy","conviction":"High","conviction_numeric":9.0,"winning_probability":null},
+    "price_levels": {"bull_target":"$480","primary_target":"$386","base_target":"$386","ideal_entry":null,"accumulate_zone":"$280~$300","hard_stop_loss":"~$250","bear_case_floor":"$250"},
+    "key_risks": ["내부자 매도 시그널","삼성 HBM 수율 안정화","매크로 쇼크 (AI CapEx 축소)"],
+    "key_catalysts": ["HBM 전량 매진 (Sold-out)","AI 인프라 필수재 리레이팅","지정학적 미국 프리미엄"],
+    "one_thing": null
+  },
+  {
+    "meta": {"ticker":"MU","company_name":"Micron Technology","report_date":"2026-01-10","report_type":"분석 보고서"},
+    "verdict": {"opinion":"Buy","conviction":"Medium-High","conviction_numeric":7.5,"winning_probability":null},
+    "price_levels": {"bull_target":"$400+","primary_target":"$360~$380","base_target":"$360~$380","ideal_entry":null,"accumulate_zone":"$320~$335","hard_stop_loss":"$310","bear_case_floor":null},
+    "key_risks": ["내부자 대규모 매도 ($50M)","넷리스트 소송 ($445M~$1.3B)","중국 시장 소멸 (TAM -10~12%)"],
+    "key_catalysts": ["웨이퍼 잠식 효과 (공급자 우위)","엔비디아 블랙웰 필수 파트너","서버 DRAM 가격 60%+ 급등"],
+    "one_thing": null
+  },
+  {
+    "meta": {"ticker":"MU","company_name":"Micron Technology","report_date":"2026-01-11","report_type":"분석 보고서"},
+    "verdict": {"opinion":"Accumulate","conviction":"Medium-High","conviction_numeric":7.5,"winning_probability":null},
+    "price_levels": {"bull_target":"$380~$400","primary_target":"$380","base_target":null,"ideal_entry":null,"accumulate_zone":"$320~$330","hard_stop_loss":"$310","bear_case_floor":"$280"},
+    "key_risks": ["내부자 매도 ($60M, 매수 전무)","넷리스트 3배 배상 ($1.3B)","재고일수 126일 (악성재고 우려)"],
+    "key_catalysts": ["HBM 슈퍼사이클 구조적 상승기","OPM 47% 질적 전환","순현금 전환 + FCF $3.9B"],
+    "one_thing": null
+  },
+  {
+    "meta": {"ticker":"MU","company_name":"Micron Technology","report_date":"2026-01-18","report_type":"CIO 승인서"},
+    "verdict": {"opinion":"Accumulate","conviction":"8.5/10","conviction_numeric":8.5,"winning_probability":"75%"},
+    "price_levels": {"bull_target":"$400","primary_target":"$380","base_target":null,"ideal_entry":"$335~$340","accumulate_zone":"$335~$340","hard_stop_loss":"$315","bear_case_floor":null},
+    "key_risks": ["CEO $70M 주식 매도","넷리스트 ITC 수입금지 리스크","FCF 20% 정부보조금 의존"],
+    "key_catalysts": ["감마 스퀴즈 ($380~$400)","지정학적 유동성 블랙홀","숏커버링 부재 (진공 상태)"],
+    "one_thing": "지금 마이크론은 단순한 반도체 기업이 아니라, '미국 기술 패권'이라는 내러티브와 'AI 인프라'라는 희소성이 결합된 유동성의 블랙홀이다."
+  },
+  {
+    "meta": {"ticker":"MU","company_name":"Micron Technology","report_date":"2026-03-05","report_type":"CIO 승인서"},
+    "verdict": {"opinion":"Strong Sell","conviction":"9/10","conviction_numeric":9.0,"winning_probability":"85%"},
+    "price_levels": {"bull_target":null,"primary_target":null,"base_target":null,"ideal_entry":"진입 금지","accumulate_zone":"$280~$340","hard_stop_loss":null,"bear_case_floor":"$280~$340"},
+    "key_risks": ["HBM4 벤더 배제 위기","내부자 엑소더스 (C-레벨 전량 투매)","PBR 8배 역사적 거품"],
+    "key_catalysts": ["한국 경쟁사 원가 폭등 시 반사이익","에너지 쇼크 상대적 방어"],
+    "one_thing": "HBM4 벤더 배제 및 내부자 엑소더스라는 치명적 펀더멘털 결함이 'PBR 8배'라는 역사적 고평가와 스태그플레이션 충격을 만나 붕괴하는 전형적인 사이클 고점 밸류 트랩이다."
+  }
+]
