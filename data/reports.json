@@ -1,6 +1,142 @@
 [
   {
     "meta": {
+      "ticker": "171090.KQ",
+      "company_name": "선익시스템",
+      "report_date": "2026-03-12",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Strong Buy",
+      "conviction": "8.5/10",
+      "conviction_numeric": 8.5,
+      "winning_probability": "약 75%"
+    },
+    "price_levels": {
+      "bull_target": null,
+      "primary_target": "160,000원",
+      "base_target": null,
+      "ideal_entry": "110,000원 ~ 118,000원",
+      "accumulate_zone": null,
+      "hard_stop_loss": null,
+      "bear_case_floor": null
+    },
+    "key_risks": [
+      "지배구조 및 인적 리스크",
+      "핵심 엔지니어 이탈",
+      "2세 승계 불투명성"
+    ],
+    "key_catalysts": [
+      "페로브스카이트 태양전지 상업화",
+      "북미 탑티어 고객사 양산 수주",
+      "Q1 OLEDOS 수주 공시"
+    ],
+    "one_thing": "20년간 이어진 일본 캐논토키의 독점 체제 붕괴는 단순한 수주가 아닌, '글로벌 표준의 전격 교체'이자 구조적 리레이팅의 시작이다."
+  },
+  {
+    "meta": {
+      "ticker": "AMAT",
+      "company_name": "Applied Materials",
+      "report_date": "2026-01-11",
+      "report_type": "분석 보고서"
+    },
+    "verdict": {
+      "opinion": "Hold",
+      "conviction": "High",
+      "conviction_numeric": 9,
+      "winning_probability": null
+    },
+    "price_levels": {
+      "accumulate_zone": "$250 이하",
+      "base_target": "$250~$280",
+      "bear_case_floor": "$240",
+      "bull_target": "$325",
+      "hard_stop_loss": null,
+      "ideal_entry": "$250 이하",
+      "primary_target": null
+    },
+    "key_risks": [
+      "지정학적/법적 리스크",
+      "과도한 밸류에이션",
+      "내부자 매도 및 이익 질"
+    ],
+    "key_catalysts": [
+      "AI/HBM4 슈퍼사이클",
+      "옹스트롬 시대 도래",
+      "GAA/HBM4 기술 우위"
+    ],
+    "one_thing": "AMAT는 훌륭한 회사지만 위험한 주식. 펀더멘털과 주가 괴리 심화. AI 파티 속 법적 리스크 폭탄."
+  },
+  {
+    "meta": {
+      "ticker": "AMZN",
+      "company_name": "Amazon.com",
+      "report_date": "2026-02-08",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Accumulate",
+      "conviction": "8.5/10",
+      "conviction_numeric": 8.5,
+      "winning_probability": "약 75%"
+    },
+    "price_levels": {
+      "bull_target": null,
+      "primary_target": "$285",
+      "base_target": "$226",
+      "ideal_entry": "$198 ~ $210",
+      "accumulate_zone": "$198 ~ $210",
+      "hard_stop_loss": "$188",
+      "bear_case_floor": null
+    },
+    "key_risks": [
+      "프로젝트 카이퍼 자금 잠식",
+      "2,000억 달러 CapEx 쇼크",
+      "FCF 71% 급감"
+    ],
+    "key_catalysts": [
+      "로보틱스 기반 물류 혁명",
+      "트레이니움 3 AWS 마진 방어",
+      "디지털 광고 22% 성장"
+    ],
+    "one_thing": "시장은 2,000억 달러의 '지출 쇼크'에 매몰되어 있으나, 본질은 수직 계열화와 로보틱스를 통해 '압도적 원가 지배력'을 구축하는 마지막 퍼즐 조각을 맞추는 과정이다."
+  },
+  {
+    "meta": {
+      "ticker": "AMZN",
+      "company_name": "Amazon.com",
+      "report_date": "2026-03-05",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "9/10",
+      "conviction_numeric": 9,
+      "winning_probability": "85%"
+    },
+    "price_levels": {
+      "bull_target": null,
+      "primary_target": null,
+      "base_target": null,
+      "ideal_entry": "$180 ~ $188",
+      "accumulate_zone": null,
+      "hard_stop_loss": "$161.38",
+      "bear_case_floor": "$180"
+    },
+    "key_risks": [
+      "중동 데이터센터 피폭 자산 손상",
+      "AI 파트너 블랙리스트 지정",
+      "CapEx 2,000억 달러 FCF 적자 전환"
+    ],
+    "key_catalysts": [
+      "물류 수직계열화 및 초자동화",
+      "로봇 자동화 126억 달러 비용 절감",
+      "2027년 이후 인프라 이익 창출"
+    ],
+    "one_thing": "2,000억 달러의 초거대 자본 지출로 인한 FCF 적자 전환과 중동 데이터센터 피폭이라는 치명적 악재가 월스트리트의 낙관적 컨센서스에 아직 반영되지 않았다."
+  },
+  {
+    "meta": {
       "ticker": "MU",
       "company_name": "Micron Technology",
       "report_date": "2026-01-05",
@@ -9,7 +145,7 @@
     "verdict": {
       "opinion": "Strong Buy",
       "conviction": "High",
-      "conviction_numeric": 9.0,
+      "conviction_numeric": 9,
       "winning_probability": null
     },
     "price_levels": {
@@ -145,7 +281,7 @@
     "verdict": {
       "opinion": "Strong Sell",
       "conviction": "9/10",
-      "conviction_numeric": 9.0,
+      "conviction_numeric": 9,
       "winning_probability": "85%"
     },
     "price_levels": {
@@ -167,107 +303,5 @@
       "에너지 쇼크 상대적 방어"
     ],
     "one_thing": "HBM4 벤더 배제 및 내부자 엑소더스라는 치명적 펀더멘털 결함이 'PBR 8배'라는 역사적 고평가와 스태그플레이션 충격을 만나 붕괴하는 전형적인 사이클 고점 밸류 트랩이다."
-  },
-  {
-    "meta": {
-      "ticker": "171090.KQ",
-      "company_name": "선익시스템",
-      "report_date": "2026-03-12",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Strong Buy",
-      "conviction": "8.5/10",
-      "conviction_numeric": 8.5,
-      "winning_probability": "약 75%"
-    },
-    "price_levels": {
-      "bull_target": null,
-      "primary_target": "160,000원",
-      "base_target": null,
-      "ideal_entry": "110,000원 ~ 118,000원",
-      "accumulate_zone": null,
-      "hard_stop_loss": null,
-      "bear_case_floor": null
-    },
-    "key_risks": [
-      "지배구조 및 인적 리스크",
-      "핵심 엔지니어 이탈",
-      "2세 승계 불투명성"
-    ],
-    "key_catalysts": [
-      "페로브스카이트 태양전지 상업화",
-      "북미 탑티어 고객사 양산 수주",
-      "Q1 OLEDOS 수주 공시"
-    ],
-    "one_thing": "20년간 이어진 일본 캐논토키의 독점 체제 붕괴는 단순한 수주가 아닌, '글로벌 표준의 전격 교체'이자 구조적 리레이팅의 시작이다."
-  },
-  {
-    "meta": {
-      "ticker": "AMZN",
-      "company_name": "Amazon.com",
-      "report_date": "2026-02-08",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Accumulate",
-      "conviction": "8.5/10",
-      "conviction_numeric": 8.5,
-      "winning_probability": "약 75%"
-    },
-    "price_levels": {
-      "bull_target": null,
-      "primary_target": "$285",
-      "base_target": "$226",
-      "ideal_entry": "$198 ~ $210",
-      "accumulate_zone": "$198 ~ $210",
-      "hard_stop_loss": "$188",
-      "bear_case_floor": null
-    },
-    "key_risks": [
-      "프로젝트 카이퍼 자금 잠식",
-      "2,000억 달러 CapEx 쇼크",
-      "FCF 71% 급감"
-    ],
-    "key_catalysts": [
-      "로보틱스 기반 물류 혁명",
-      "트레이니움 3 AWS 마진 방어",
-      "디지털 광고 22% 성장"
-    ],
-    "one_thing": "시장은 2,000억 달러의 '지출 쇼크'에 매몰되어 있으나, 본질은 수직 계열화와 로보틱스를 통해 '압도적 원가 지배력'을 구축하는 마지막 퍼즐 조각을 맞추는 과정이다."
-  },
-  {
-    "meta": {
-      "ticker": "AMZN",
-      "company_name": "Amazon.com",
-      "report_date": "2026-03-05",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Reduce",
-      "conviction": "9/10",
-      "conviction_numeric": 9.0,
-      "winning_probability": "85%"
-    },
-    "price_levels": {
-      "bull_target": null,
-      "primary_target": null,
-      "base_target": null,
-      "ideal_entry": "$180 ~ $188",
-      "accumulate_zone": null,
-      "hard_stop_loss": "$161.38",
-      "bear_case_floor": "$180"
-    },
-    "key_risks": [
-      "중동 데이터센터 피폭 자산 손상",
-      "AI 파트너 블랙리스트 지정",
-      "CapEx 2,000억 달러 FCF 적자 전환"
-    ],
-    "key_catalysts": [
-      "물류 수직계열화 및 초자동화",
-      "로봇 자동화 126억 달러 비용 절감",
-      "2027년 이후 인프라 이익 창출"
-    ],
-    "one_thing": "2,000억 달러의 초거대 자본 지출로 인한 FCF 적자 전환과 중동 데이터센터 피폭이라는 치명적 악재가 월스트리트의 낙관적 컨센서스에 아직 반영되지 않았다."
   }
 ]
