@@ -42,7 +42,7 @@
       "report_type": "분석 보고서"
     },
     "verdict": {
-      "opinion": "Hold",
+      "opinion": "Reduce",
       "conviction": "High",
       "conviction_numeric": 9,
       "winning_probability": null
@@ -55,19 +55,19 @@
       "current_price_at_writing": "$301.18",
       "hard_stop_loss": null,
       "ideal_entry": "$250 이하",
-      "primary_target": null
+      "primary_target": "$250~$260"
     },
     "key_risks": [
-      "밸류에이션 괴리",
-      "지정학적/법적 뇌관",
-      "내부자 매도 신호"
+      "미 법무부 형사 조사",
+      "중국 IP 소송 및 시장 퇴출",
+      "내부자 매도 및 이익의 질"
     ],
     "key_catalysts": [
-      "AI/HBM4 슈퍼사이클",
-      "옹스트롬 시대 도래",
-      "2nm 경쟁 심화"
+      "AI/HBM4 슈퍼사이클 도래",
+      "옹스트롬 시대 공정 스텝 증가",
+      "GAA/HBM4/Sculpta 기술 우위"
     ],
-    "one_thing": "현재 AMAT는 '훌륭한 회사(Great Company)'이지만 '위험한 주식(Dangerous Stock)'입니다. 펀더멘털과 주가 사이의 괴리가 극에 달했습니다. AI라는 파티는 즐기지만, 출구 근처에 법적 리스크라는 폭탄이 놓여 있습니"
+    "one_thing": "현재 AMAT는 **'훌륭한 회사(Great Company)'**이지만 **'위험한 주식(Dangerous Stock)'**입니다. 펀더멘털과 주가 사이의 괴리가 극에 달했습니다. AI라는 파티는 즐겁지만, 출구 근처에 법적 리스크라는 폭탄이 놓여 있습니다."
   },
   {
     "meta": {
