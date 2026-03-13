@@ -1,15 +1,83 @@
 [
   {
     "meta": {
+      "ticker": "171090.KQ",
+      "company_name": "ì ìµìì¤í",
+      "report_date": "2026-03-12",
+      "report_type": "CIO ì¹ì¸ì"
+    },
+    "verdict": {
+      "opinion": "Strong Buy",
+      "conviction": "8.5/10",
+      "conviction_numeric": 8.5,
+      "winning_probability": "ì½ 75%"
+    },
+    "price_levels": {
+      "bull_target": null,
+      "primary_target": "160,000ì",
+      "base_target": null,
+      "ideal_entry": "110,000ì ~ 118,000ì",
+      "accumulate_zone": null,
+      "hard_stop_loss": null,
+      "bear_case_floor": null
+    },
+    "key_risks": [
+      "ì§ë°°êµ¬ì¡° ë° ì¸ì  ë¦¬ì¤í¬",
+      "íµì¬ ìì§ëì´ ì´í",
+      "2ì¸ ì¹ê³ ë¶í¬ëªì±"
+    ],
+    "key_catalysts": [
+      "íë¡ë¸ì¤ì¹´ì´í¸ íìì ì§ ììí",
+      "ë¶ë¯¸ íí°ì´ ê³ ê°ì¬ ìì° ìì£¼",
+      "Q1 OLEDOS ìì£¼ ê³µì"
+    ],
+    "one_thing": "20ëê° ì´ì´ì§ ì¼ë³¸ ìºë¼í í¤ì ëì  ì²´ì  ë¶ê´´ë ë¨ìí ìì£¼ê° ìë, 'ê¸ë¡ë² íì¤ì ì ê²© êµì²´'ì´ì êµ¬ì¡°ì  ë¦¬ë ì´íì ììì´ë¤."
+  },
+  {
+    "meta": {
+      "ticker": "AMZN",
+      "company_name": "Amazon.com",
+      "report_date": "2026-01-01",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Accumulate",
+      "conviction": "8.5/10",
+      "conviction_numeric": 8.5,
+      "winning_probability": "약 75%"
+    },
+    "price_levels": {
+      "accumulate_zone": "$198 ~ $210",
+      "base_target": "$226",
+      "bear_case_floor": null,
+      "bull_target": null,
+      "hard_stop_loss": "$188",
+      "ideal_entry": "$198 ~ $210",
+      "primary_target": "$285"
+    },
+    "key_risks": [
+      "프로젝트 카이퍼 자금 잠식",
+      "높은 위성 발사 비용",
+      "수익 모델 미검증 Other Bets"
+    ],
+    "key_catalysts": [
+      "로보틱스 기반 리테일 혁명",
+      "AWS 매출 재가속화",
+      "AI 인프라 공짜 매수 기회"
+    ],
+    "one_thing": "시장은 2,000억 달러의 '지출 쇼크'에 매몰되어 있으나, 본질은 수직 계열화(자체 칩)와 로보틱스를 통해 경쟁사들이 도저히 넘볼 수 없는 '압도적 원가 지배력'을 구축하는 마지막 퍼즐 조각을 맞추는 과정이다."
+  },
+  {
+    "meta": {
       "ticker": "MU",
       "company_name": "Micron Technology",
       "report_date": "2026-01-05",
-      "report_type": "분석 보고서"
+      "report_type": "ë¶ì ë³´ê³ ì"
     },
     "verdict": {
       "opinion": "Strong Buy",
       "conviction": "High",
-      "conviction_numeric": 9.0,
+      "conviction_numeric": 9,
       "winning_probability": null
     },
     "price_levels": {
@@ -22,14 +90,14 @@
       "bear_case_floor": "$250"
     },
     "key_risks": [
-      "내부자 매도 시그널",
-      "삼성 HBM 수율 안정화",
-      "매크로 쇼크 (AI CapEx 축소)"
+      "ë´ë¶ì ë§¤ë ìê·¸ë",
+      "ì¼ì± HBM ìì¨ ìì í",
+      "ë§¤í¬ë¡ ì¼í¬ (AI CapEx ì¶ì)"
     ],
     "key_catalysts": [
-      "HBM 전량 매진 (Sold-out)",
-      "AI 인프라 필수재 리레이팅",
-      "지정학적 미국 프리미엄"
+      "HBM ì ë ë§¤ì§ (Sold-out)",
+      "AI ì¸íë¼ íìì¬ ë¦¬ë ì´í",
+      "ì§ì íì  ë¯¸êµ­ íë¦¬ë¯¸ì"
     ],
     "one_thing": null
   },
@@ -38,7 +106,7 @@
       "ticker": "MU",
       "company_name": "Micron Technology",
       "report_date": "2026-01-10",
-      "report_type": "분석 보고서"
+      "report_type": "ë¶ì ë³´ê³ ì"
     },
     "verdict": {
       "opinion": "Buy",
@@ -56,14 +124,14 @@
       "bear_case_floor": null
     },
     "key_risks": [
-      "내부자 대규모 매도 ($50M)",
-      "넷리스트 소송 ($445M~$1.3B)",
-      "중국 시장 소멸 (TAM -10~12%)"
+      "ë´ë¶ì ëê·ëª¨ ë§¤ë ($50M)",
+      "ë·ë¦¬ì¤í¸ ìì¡ ($445M~$1.3B)",
+      "ì¤êµ­ ìì¥ ìë©¸ (TAM -10~12%)"
     ],
     "key_catalysts": [
-      "웨이퍼 잠식 효과 (공급자 우위)",
-      "엔비디아 블랙웰 필수 파트너",
-      "서버 DRAM 가격 60%+ 급등"
+      "ì¨ì´í¼ ì ì í¨ê³¼ (ê³µê¸ì ì°ì)",
+      "ìë¹ëì ë¸ëì° íì íí¸ë",
+      "ìë² DRAM ê°ê²© 60%+ ê¸ë±"
     ],
     "one_thing": null
   },
@@ -72,7 +140,7 @@
       "ticker": "MU",
       "company_name": "Micron Technology",
       "report_date": "2026-01-11",
-      "report_type": "분석 보고서"
+      "report_type": "ë¶ì ë³´ê³ ì"
     },
     "verdict": {
       "opinion": "Accumulate",
@@ -90,14 +158,14 @@
       "bear_case_floor": "$280"
     },
     "key_risks": [
-      "내부자 매도 ($60M, 매수 전무)",
-      "넷리스트 3배 배상 ($1.3B)",
-      "재고일수 126일 (악성재고 우려)"
+      "ë´ë¶ì ë§¤ë ($60M, ë§¤ì ì ë¬´)",
+      "ë·ë¦¬ì¤í¸ 3ë°° ë°°ì ($1.3B)",
+      "ì¬ê³ ì¼ì 126ì¼ (ìì±ì¬ê³  ì°ë ¤)"
     ],
     "key_catalysts": [
-      "HBM 슈퍼사이클 구조적 상승기",
-      "OPM 47% 질적 전환",
-      "순현금 전환 + FCF $3.9B"
+      "HBM ìí¼ì¬ì´í´ êµ¬ì¡°ì  ìì¹ê¸°",
+      "OPM 47% ì§ì  ì í",
+      "ìíê¸ ì í + FCF $3.9B"
     ],
     "one_thing": null
   },
@@ -106,7 +174,7 @@
       "ticker": "MU",
       "company_name": "Micron Technology",
       "report_date": "2026-01-18",
-      "report_type": "CIO 승인서"
+      "report_type": "CIO ì¹ì¸ì"
     },
     "verdict": {
       "opinion": "Accumulate",
@@ -124,82 +192,48 @@
       "bear_case_floor": null
     },
     "key_risks": [
-      "CEO $70M 주식 매도",
-      "넷리스트 ITC 수입금지 리스크",
-      "FCF 20% 정부보조금 의존"
+      "CEO $70M ì£¼ì ë§¤ë",
+      "ë·ë¦¬ì¤í¸ ITC ììê¸ì§ ë¦¬ì¤í¬",
+      "FCF 20% ì ë¶ë³´ì¡°ê¸ ìì¡´"
     ],
     "key_catalysts": [
-      "감마 스퀴즈 ($380~$400)",
-      "지정학적 유동성 블랙홀",
-      "숏커버링 부재 (진공 상태)"
+      "ê°ë§ ì¤í´ì¦ ($380~$400)",
+      "ì§ì íì  ì ëì± ë¸ëí",
+      "ìì»¤ë²ë§ ë¶ì¬ (ì§ê³µ ìí)"
     ],
-    "one_thing": "지금 마이크론은 단순한 반도체 기업이 아니라, '미국 기술 패권'이라는 내러티브와 'AI 인프라'라는 희소성이 결합된 유동성의 블랙홀이다."
+    "one_thing": "ì§ê¸ ë§ì´í¬ë¡ ì ë¨ìí ë°ëì²´ ê¸°ìì´ ìëë¼, 'ë¯¸êµ­ ê¸°ì  í¨ê¶'ì´ë¼ë ë´ë¬í°ë¸ì 'AI ì¸íë¼'ë¼ë í¬ìì±ì´ ê²°í©ë ì ëì±ì ë¸ëíì´ë¤."
   },
   {
     "meta": {
       "ticker": "MU",
       "company_name": "Micron Technology",
       "report_date": "2026-03-05",
-      "report_type": "CIO 승인서"
+      "report_type": "CIO ì¹ì¸ì"
     },
     "verdict": {
       "opinion": "Strong Sell",
       "conviction": "9/10",
-      "conviction_numeric": 9.0,
+      "conviction_numeric": 9,
       "winning_probability": "85%"
     },
     "price_levels": {
       "bull_target": null,
       "primary_target": null,
       "base_target": null,
-      "ideal_entry": "진입 금지",
+      "ideal_entry": "ì§ì ê¸ì§",
       "accumulate_zone": "$280~$340",
       "hard_stop_loss": null,
       "bear_case_floor": "$280~$340"
     },
     "key_risks": [
-      "HBM4 벤더 배제 위기",
-      "내부자 엑소더스 (C-레벨 전량 투매)",
-      "PBR 8배 역사적 거품"
+      "HBM4 ë²¤ë ë°°ì  ìê¸°",
+      "ë´ë¶ì ììëì¤ (C-ë ë²¨ ì ë í¬ë§¤)",
+      "PBR 8ë°° ì­ì¬ì  ê±°í"
     ],
     "key_catalysts": [
-      "한국 경쟁사 원가 폭등 시 반사이익",
-      "에너지 쇼크 상대적 방어"
+      "íêµ­ ê²½ìì¬ ìê° í­ë± ì ë°ì¬ì´ìµ",
+      "ìëì§ ì¼í¬ ìëì  ë°©ì´"
     ],
-    "one_thing": "HBM4 벤더 배제 및 내부자 엑소더스라는 치명적 펀더멘털 결함이 'PBR 8배'라는 역사적 고평가와 스태그플레이션 충격을 만나 붕괴하는 전형적인 사이클 고점 밸류 트랩이다."
-  },
-  {
-    "meta": {
-      "ticker": "171090.KQ",
-      "company_name": "선익시스템",
-      "report_date": "2026-03-12",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Strong Buy",
-      "conviction": "8.5/10",
-      "conviction_numeric": 8.5,
-      "winning_probability": "약 75%"
-    },
-    "price_levels": {
-      "bull_target": null,
-      "primary_target": "160,000원",
-      "base_target": null,
-      "ideal_entry": "110,000원 ~ 118,000원",
-      "accumulate_zone": null,
-      "hard_stop_loss": null,
-      "bear_case_floor": null
-    },
-    "key_risks": [
-      "지배구조 및 인적 리스크",
-      "핵심 엔지니어 이탈",
-      "2세 승계 불투명성"
-    ],
-    "key_catalysts": [
-      "페로브스카이트 태양전지 상업화",
-      "북미 탑티어 고객사 양산 수주",
-      "Q1 OLEDOS 수주 공시"
-    ],
-    "one_thing": "20년간 이어진 일본 캐논토키의 독점 체제 붕괴는 단순한 수주가 아닌, '글로벌 표준의 전격 교체'이자 구조적 리레이팅의 시작이다."
+    "one_thing": "HBM4 ë²¤ë ë°°ì  ë° ë´ë¶ì ììëì¤ë¼ë ì¹ëªì  íëë©í¸ ê²°í¨ì´ 'PBR 8ë°°'ë¼ë ì­ì¬ì  ê³ íê°ì ì¤íê·¸íë ì´ì ì¶©ê²©ì ë§ë ë¶ê´´íë ì íì ì¸ ì¬ì´í´ ê³ ì  ë°¸ë¥ í¸ë©ì´ë¤."
   }
 ]
