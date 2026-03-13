@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CIO Investment Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #06080d;
+  --bg-grid: rgba(59,130,246,0.03);
+  --surface: #0d1117;
+  --surface-alt: #151b27;
+  --surface-hover: #1a2234;
+  --border: #1b2438;
+  --border-hover: #2a3a54;
+  --text: #e2e8f0;
+  --text-muted: #8b9dc3;
+  --text-dim: #4a5e80;
+  --accent: #4d8eff;
+  --accent-glow: rgba(77,142,255,0.12);
+  --accent-glow2: rgba(77,142,255,0.06);
+  --green: #00d68f;
+  --green-dim: rgba(0,214,143,0.1);
+  --red: #ff4757;
+  --red-dim: rgba(255,71,87,0.1);
+  --yellow: #ffa502;
+  --yellow-dim: rgba(255,165,2,0.1);
+  --purple: #a78bfa;
+  --mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --sans: 'Noto Sans KR', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  min-height: 100vh;
+  background-image:
+    linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+.container { max-width: 1280px; margin: 0 auto; padding: 28px 24px; }
+
+/* ── Header ── */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.header-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.header-main {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+.header-main span { color: var(--accent); }
+
+.ticker-tabs { display: flex; gap: 4px; }
+.ticker-tab {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.ticker-tab:hover { border-color: var(--border-hover); color: var(--text-muted); }
+.ticker-tab.active {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ── Latest Card ── */
+.latest-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.latest-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--purple), var(--accent));
+}
+.latest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.latest-ticker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.latest-ticker h2 {
+  font-family: var(--mono);
+  font-size: 24px;
+  font-weight: 800;
+}
+.latest-company { font-size: 14px; color: var(--text-muted); }
+.latest-date { font-size: 12px; color: var(--text-dim); font-family: var(--mono); }
+
+.one-thing {
+  background: var(--surface-alt);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+.latest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+.latest-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.conviction-bar-track {
+  height: 5px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+.conviction-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.conviction-value {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 800;
+}
+.risk-item { font-size: 12px; line-height: 1.8; color: var(--red); }
+.risk-item::before { content: '▸ '; opacity: 0.5; }
+.catalyst-item { font-size: 12px; line-height: 1.8; color: var(--green); }
+.catalyst-item::before { content: '▸ '; opacity: 0.5; }
+
+/* ── Verdict Badge ── */
+.verdict {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.verdict-strong-buy { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,214,143,0.2); }
+.verdict-buy { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,214,143,0.2); }
+.verdict-accumulate { background: var(--accent-glow); color: var(--accent); border: 1px solid rgba(77,142,255,0.2); }
+.verdict-hold { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(255,165,2,0.2); }
+.verdict-reduce { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,71,87,0.2); }
+.verdict-strong-sell { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,71,87,0.2); }
+
+/* ── Table ── */
+.table-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.table-header {
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.table-header h3 { font-size: 14px; font-weight: 700; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 750px; }
+thead { background: var(--surface-alt); }
+th {
+  padding: 11px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+th:first-child { text-align: left; padding-left: 22px; width: 190px; }
+td {
+  padding: 9px 12px;
+  font-size: 13px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+td:first-child { text-align: left; padding-left: 22px; font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+tr:hover { background: var(--surface-alt); }
+.row-highlight { background: var(--surface-alt); }
+
+.price-bull { color: var(--green); font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.price-target { color: var(--accent); font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.price-entry { color: var(--purple); font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.price-stop { color: var(--red); font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.price-bear { color: var(--red); font-family: var(--mono); font-size: 13px; font-weight: 500; }
+.price-null { color: var(--text-dim); }
+.price-warning {
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 800;
+  background: var(--red-dim);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.conviction-cell { font-family: var(--mono); font-size: 13px; font-weight: 700; }
+
+.table-footer {
+  padding: 8px 22px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+/* ── Upload Section ── */
+.upload-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px 26px;
+  margin-bottom: 20px;
+}
+.upload-card h3 { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+.upload-row { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; flex-wrap: wrap; }
+.upload-input {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 13px;
+  font-family: var(--mono);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.upload-input:focus { border-color: var(--accent); }
+.upload-input::placeholder { color: var(--text-dim); }
+.upload-btn {
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--sans);
+}
+.upload-btn:hover { filter: brightness(1.15); }
+.upload-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.upload-hint { font-size: 12px; color: var(--text-dim); }
+
+.parse-result {
+  margin-top: 14px;
+  background: var(--surface-alt);
+  border-radius: 10px;
+  padding: 14px 18px;
+  max-height: 280px;
+  overflow: auto;
+}
+.parse-ok { color: var(--green); font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.parse-err { color: var(--red); font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.parse-json {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.footer-note {
+  background: var(--surface-alt);
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.9;
+}
+.footer-note a { color: var(--accent); text-decoration: none; }
+.footer-note code { color: var(--purple); font-family: var(--mono); font-size: 11px; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: fadeIn 0.4s ease forwards; }
+</style>
+</head>
+<body>
+
+<div class="container" id="app"></div>
+
+<script>
+// ═══════════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════════
+const WORKER_URL = "https://cio-parser.hong4137.workers.dev";
+
+let reports = [
+  {
+    meta: { ticker: "MU", company_name: "Micron Technology", report_date: "2026-01-05", report_type: "분석 보고서" },
+    verdict: { opinion: "Strong Buy", conviction: "High", conviction_numeric: 9.0, winning_probability: null },
+    price_levels: { bull_target: "$480", primary_target: "$386", base_target: "$386", ideal_entry: null, accumulate_zone: "$280~$300", hard_stop_loss: "~$250", bear_case_floor: "$250" },
+    key_risks: ["내부자 매도 시그널", "삼성 HBM 수율 안정화", "매크로 쇼크 (AI CapEx 축소)"],
+    key_catalysts: ["HBM 전량 매진 (Sold-out)", "AI 인프라 필수재 리레이팅", "지정학적 미국 프리미엄"],
+    one_thing: null,
+  },
+  {
+    meta: { ticker: "MU", company_name: "Micron Technology", report_date: "2026-01-10", report_type: "분석 보고서" },
+    verdict: { opinion: "Buy", conviction: "Medium-High", conviction_numeric: 7.5, winning_probability: null },
+    price_levels: { bull_target: "$400+", primary_target: "$360~$380", base_target: "$360~$380", ideal_entry: null, accumulate_zone: "$320~$335", hard_stop_loss: "$310", bear_case_floor: null },
+    key_risks: ["내부자 대규모 매도 ($50M)", "넷리스트 소송 ($445M~$1.3B)", "중국 시장 소멸 (TAM -10~12%)"],
+    key_catalysts: ["웨이퍼 잠식 효과 (공급자 우위)", "엔비디아 블랙웰 필수 파트너", "서버 DRAM 가격 60%+ 급등"],
+    one_thing: null,
+  },
+  {
+    meta: { ticker: "MU", company_name: "Micron Technology", report_date: "2026-01-11", report_type: "분석 보고서" },
+    verdict: { opinion: "Accumulate", conviction: "Medium-High", conviction_numeric: 7.5, winning_probability: null },
+    price_levels: { bull_target: "$380~$400", primary_target: "$380", base_target: null, ideal_entry: null, accumulate_zone: "$320~$330", hard_stop_loss: "$310", bear_case_floor: "$280" },
+    key_risks: ["내부자 매도 ($60M, 매수 전무)", "넷리스트 3배 배상 ($1.3B)", "재고일수 126일 (악성재고 우려)"],
+    key_catalysts: ["HBM 슈퍼사이클 구조적 상승기", "OPM 47% 질적 전환", "순현금 전환 + FCF $3.9B"],
+    one_thing: null,
+  },
+  {
+    meta: { ticker: "MU", company_name: "Micron Technology", report_date: "2026-01-18", report_type: "CIO 승인서" },
+    verdict: { opinion: "Accumulate", conviction: "8.5/10", conviction_numeric: 8.5, winning_probability: "75%" },
+    price_levels: { bull_target: "$400", primary_target: "$380", base_target: null, ideal_entry: "$335~$340", accumulate_zone: "$335~$340", hard_stop_loss: "$315", bear_case_floor: null },
+    key_risks: ["CEO $70M 주식 매도", "넷리스트 ITC 수입금지 리스크", "FCF 20% 정부보조금 의존"],
+    key_catalysts: ["감마 스퀴즈 ($380~$400)", "지정학적 유동성 블랙홀", "숏커버링 부재 (진공 상태)"],
+    one_thing: "지금 마이크론은 단순한 반도체 기업이 아니라, '미국 기술 패권'이라는 내러티브와 'AI 인프라'라는 희소성이 결합된 유동성의 블랙홀이다.",
+  },
+  {
+    meta: { ticker: "MU", company_name: "Micron Technology", report_date: "2026-03-05", report_type: "CIO 승인서" },
+    verdict: { opinion: "Strong Sell", conviction: "9/10", conviction_numeric: 9.0, winning_probability: "85%" },
+    price_levels: { bull_target: null, primary_target: null, base_target: null, ideal_entry: "진입 금지", accumulate_zone: "$280~$340", hard_stop_loss: null, bear_case_floor: "$280~$340" },
+    key_risks: ["HBM4 벤더 배제 위기", "내부자 엑소더스 (C-레벨 전량 투매)", "PBR 8배 역사적 거품"],
+    key_catalysts: ["한국 경쟁사 원가 폭등 시 반사이익", "에너지 쇼크 상대적 방어"],
+    one_thing: "HBM4 벤더 배제 및 내부자 엑소더스라는 치명적 펀더멘털 결함이 'PBR 8배'라는 역사적 고평가와 스태그플레이션 충격을 만나 붕괴하는 전형적인 사이클 고점 밸류 트랩이다.",
+  },
+];
+
+let selectedTicker = "MU";
+let parsing = false;
+let parseResult = null;
+
+// ═══════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════
+function fmtDate(d) {
+  const [y, m, dd] = d.split("-");
+  return y.slice(2) + "." + m + "." + dd;
+}
+
+function verdictClass(opinion) {
+  const map = {
+    "Strong Buy": "verdict-strong-buy",
+    "Buy": "verdict-buy",
+    "Accumulate": "verdict-accumulate",
+    "Hold": "verdict-hold",
+    "Reduce": "verdict-reduce",
+    "Strong Sell": "verdict-strong-sell",
+  };
+  return map[opinion] || "verdict-hold";
+}
+
+function verdictLabel(opinion) {
+  const map = {
+    "Strong Buy": "강력 매수",
+    "Buy": "매수",
+    "Accumulate": "분할매수",
+    "Hold": "보유",
+    "Reduce": "비중축소",
+    "Strong Sell": "강력 매도",
+  };
+  return map[opinion] || opinion;
+}
+
+function priceHtml(val, type) {
+  if (!val) return '<span class="price-null">—</span>';
+  if (val === "진입 금지") return '<span class="price-warning">진입 금지</span>';
+  return `<span class="price-${type}">${val}</span>`;
+}
+
+function convictionColor(v) {
+  if (v >= 8) return "var(--green)";
+  if (v >= 6) return "var(--accent)";
+  if (v >= 4) return "var(--yellow)";
+  return "var(--red)";
+}
+
+function getTickers() {
+  return [...new Set(reports.map(r => r.meta.ticker))];
+}
+
+function getFiltered() {
+  return reports
+    .filter(r => r.meta.ticker === selectedTicker)
+    .sort((a, b) => a.meta.report_date.localeCompare(b.meta.report_date));
+}
+
+// ═══════════════════════════════════════════════
+// RENDER
+// ═══════════════════════════════════════════════
+function render() {
+  const tickers = getTickers();
+  const filtered = getFiltered();
+  const latest = filtered[filtered.length - 1];
+
+  const ROWS = [
+    { key: "bull_target", label: "Bull Target (최고)", icon: "🎯", type: "bull" },
+    { key: "primary_target", label: "1차 목표가", icon: "📍", type: "target" },
+    { key: "base_target", label: "Base Target", icon: "📊", type: "target" },
+    { key: "ideal_entry", label: "이상적 진입 (Ideal)", icon: "💎", type: "entry" },
+    { key: "accumulate_zone", label: "분할매수 구간", icon: "🛒", type: "entry" },
+    { key: "hard_stop_loss", label: "Hard Stop-Loss", icon: "⚠️", type: "stop" },
+    { key: "bear_case_floor", label: "Bear Case 하단", icon: "🔴", type: "bear" },
+  ];
+
+  let html = "";
+
+  // ── Header
+  html += `
+  <div class="header animate-in">
+    <div>
+      <div class="header-title">Investment Analysis</div>
+      <div class="header-main"><span>CIO</span> Dashboard</div>
+    </div>
+    <div class="ticker-tabs">
+      ${tickers.map(t => `
+        <button class="ticker-tab ${t === selectedTicker ? 'active' : ''}" onclick="selectTicker('${t}')">${t}</button>
+      `).join("")}
+    </div>
+  </div>`;
+
+  // ── Latest Card
+  if (latest) {
+    const cv = latest.verdict.conviction_numeric;
+    html += `
+    <div class="latest-card animate-in" style="animation-delay: 0.05s">
+      <div class="latest-header">
+        <div class="latest-ticker">
+          <h2>${latest.meta.ticker}</h2>
+          <span class="latest-company">${latest.meta.company_name}</span>
+          <span class="verdict ${verdictClass(latest.verdict.opinion)}">${verdictLabel(latest.verdict.opinion)}</span>
+          ${latest.verdict.winning_probability ? `<span style="font-family:var(--mono);font-size:12px;color:var(--text-dim)">WP ${latest.verdict.winning_probability}</span>` : ""}
+        </div>
+        <span class="latest-date">${fmtDate(latest.meta.report_date)} · ${latest.meta.report_type}</span>
+      </div>
+      ${latest.one_thing ? `<div class="one-thing">"${latest.one_thing}"</div>` : ""}
+      <div class="latest-grid">
+        <div>
+          <div class="latest-section-title">확신도 Conviction</div>
+          <div class="conviction-value" style="color:${convictionColor(cv)}">${cv.toFixed(1)}<span style="font-size:13px;color:var(--text-dim)">/10</span></div>
+          <div class="conviction-bar-track" style="margin-top:6px">
+            <div class="conviction-bar-fill" style="width:${cv * 10}%;background:${convictionColor(cv)}"></div>
+          </div>
+        </div>
+        <div>
+          <div class="latest-section-title">핵심 리스크 Key Risks</div>
+          ${(latest.key_risks || []).filter(Boolean).map(r => `<div class="risk-item">${r}</div>`).join("")}
+        </div>
+        <div>
+          <div class="latest-section-title">핵심 촉매 Catalysts</div>
+          ${(latest.key_catalysts || []).filter(Boolean).map(c => `<div class="catalyst-item">${c}</div>`).join("")}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ── Comparison Table
+  html += `
+  <div class="table-card animate-in" style="animation-delay: 0.1s">
+    <div class="table-header">
+      <h3>리포트별 가격 레벨 비교 — ${selectedTicker}</h3>
+      <span style="font-size:11px;color:var(--text-dim)">${filtered.length}개 리포트</span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>가격 구분</th>
+            ${filtered.map(r => `
+              <th>
+                <div style="margin-bottom:4px">${fmtDate(r.meta.report_date)}</div>
+                <span class="verdict ${verdictClass(r.verdict.opinion)}" style="font-size:10px;padding:2px 8px">${verdictLabel(r.verdict.opinion)}</span>
+              </th>
+            `).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          ${ROWS.map(row => `
+            <tr>
+              <td>${row.icon} ${row.label}</td>
+              ${filtered.map(r => `<td>${priceHtml(r.price_levels[row.key], row.type)}</td>`).join("")}
+            </tr>
+          `).join("")}
+          <tr class="row-highlight">
+            <td>🏷️ <strong>투자의견</strong></td>
+            ${filtered.map(r => `<td><span class="verdict ${verdictClass(r.verdict.opinion)}">${verdictLabel(r.verdict.opinion)}</span></td>`).join("")}
+          </tr>
+          <tr>
+            <td>📊 <strong>확신도</strong></td>
+            ${filtered.map(r => `
+              <td><span class="conviction-cell" style="color:${convictionColor(r.verdict.conviction_numeric)}">${r.verdict.conviction}</span></td>
+            `).join("")}
+          </tr>
+          <tr class="row-highlight">
+            <td>🗓️ <strong>작성 시점 주가</strong></td>
+            ${filtered.map(() => `<td class="price-null">—</td>`).join("")}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="table-footer">
+      ※ <span style="color:var(--green)">녹색</span>은 목표가 ·
+      <span style="color:var(--accent)">파란색</span>은 기준 레벨 ·
+      <span style="color:var(--purple)">보라색</span>은 진입 구간 ·
+      <span style="color:var(--red)">빨간색</span>은 손절/경고
+      &nbsp;|&nbsp; CIO 승인서 기준 최종 유효값 참조
+    </div>
+  </div>`;
+
+  // ── Upload Section
+  html += `
+  <div class="upload-card animate-in" style="animation-delay: 0.15s">
+    <h3>📄 리포트 파싱 — PDF/MD 업로드</h3>
+    <div class="upload-row">
+      <input type="text" class="upload-input" style="flex:1;min-width:280px" value="${WORKER_URL}" id="workerUrlInput" placeholder="Cloudflare Worker URL">
+    </div>
+    <div class="upload-row">
+      <input type="file" accept=".pdf,.md,.txt" id="fileInput" style="display:none" onchange="handleUpload(event)">
+      <button class="upload-btn" onclick="document.getElementById('fileInput').click()" id="uploadBtn" ${parsing ? "disabled" : ""}>
+        ${parsing ? "⏳ 파싱 중..." : "📎 PDF/MD 업로드 & 파싱"}
+      </button>
+      <span class="upload-hint">CIO 승인서 또는 분석 보고서를 업로드하면 자동으로 비교표에 추가됩니다</span>
+    </div>
+    ${parseResult ? `
+      <div class="parse-result">
+        <div class="${parseResult.error ? 'parse-err' : 'parse-ok'}">
+          ${parseResult.error ? '❌ 오류: ' + parseResult.error : '✅ 파싱 성공 — 비교표에 추가됨'}
+        </div>
+        <div class="parse-json">${JSON.stringify(parseResult.error ? parseResult : parseResult, null, 2)}</div>
+      </div>
+    ` : ""}
+  </div>`;
+
+  // ── Footer
+  html += `
+  <div class="footer-note animate-in" style="animation-delay: 0.2s">
+    <strong style="color:var(--text-muted)">⚙️ 설정 가이드</strong><br>
+    1. <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>에서 Gemini API 키 발급<br>
+    2. Cloudflare Worker에 secret 등록 후 배포<br>
+    3. PDF 업로드 시 Gemini 2.5 Flash가 자동 파싱 → 비교표 추가<br>
+    4. 추천 모델: <code>gemini-2.5-flash</code> (무료 10 RPM / 250 RPD)
+  </div>`;
+
+  document.getElementById("app").innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════
+// ACTIONS
+// ═══════════════════════════════════════════════
+function selectTicker(t) {
+  selectedTicker = t;
+  render();
+}
+
+async function handleUpload(e) {
+  const file = e.target.files?.[0];
+  if (!file) return;
+
+  parsing = true;
+  parseResult = null;
+  render();
+
+  try {
+    const url = document.getElementById("workerUrlInput")?.value || WORKER_URL;
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const resp = await fetch(url, { method: "POST", body: formData });
+    const data = await resp.json();
+
+    if (!data.success) throw new Error(data.error || "파싱 실패");
+
+    const parsed = data.data;
+    parseResult = parsed;
+
+    // 중복 체크 후 추가
+    const exists = reports.some(
+      r => r.meta.ticker === parsed.meta.ticker && r.meta.report_date === parsed.meta.report_date && r.meta.report_type === parsed.meta.report_type
+    );
+    if (!exists) {
+      reports.push(parsed);
+    }
+    selectedTicker = parsed.meta.ticker;
+  } catch (err) {
+    parseResult = { error: err.message };
+  } finally {
+    parsing = false;
+    document.getElementById("fileInput").value = "";
+    render();
+  }
+}
+
+// ═══════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════
+render();
+</script>
+</body>
+</html>
