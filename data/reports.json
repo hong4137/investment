@@ -36,41 +36,6 @@
   },
   {
     "meta": {
-      "ticker": "171090.KQ",
-      "company_name": "선익시스템",
-      "report_date": "2026-03-12",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Strong Buy",
-      "conviction": "8.5/10",
-      "conviction_numeric": 8.5,
-      "winning_probability": "약 75%"
-    },
-    "price_levels": {
-      "bull_target": null,
-      "primary_target": "160,000원",
-      "base_target": null,
-      "ideal_entry": "110,000원 ~ 118,000원",
-      "accumulate_zone": null,
-      "hard_stop_loss": null,
-      "bear_case_floor": null,
-      "current_price_at_writing": null
-    },
-    "key_risks": [
-      "지배구조 및 인적 리스크",
-      "핵심 엔지니어 이탈",
-      "2세 승계 불투명성"
-    ],
-    "key_catalysts": [
-      "페로브스카이트 태양전지 상업화",
-      "북미 탑티어 고객사 양산 수주",
-      "Q1 OLEDOS 수주 공시"
-    ],
-    "one_thing": "20년간 이어진 일본 캐논토키의 독점 체제 붕괴는 단순한 수주가 아닌, '글로벌 표준의 전격 교체'이자 구조적 리레이팅의 시작이다."
-  },
-  {
-    "meta": {
       "ticker": "AMAT",
       "company_name": "Applied Materials",
       "report_date": "2026-01-11",
