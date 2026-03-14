@@ -491,9 +491,12 @@ function render() {
         <thead>
           <tr>
             <th>가격 구분</th>
-            ${filtered.map(r => `
+            ${filtered.map((r, i) => `
               <th>
-                <div style="margin-bottom:4px">${fmtDate(r.meta.report_date)}</div>
+                <div style="display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:4px">
+                  <span>${fmtDate(r.meta.report_date)}</span>
+                  <button onclick="deleteReport('${r.meta.ticker}','${r.meta.report_date}','${r.meta.report_type}')" style="background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:11px;padding:1px 4px;border-radius:3px;line-height:1;opacity:0.4;transition:all 0.2s" onmouseover="this.style.opacity=1;this.style.color='var(--red)'" onmouseout="this.style.opacity=0.4;this.style.color='var(--text-dim)'" title="이 리포트 삭제">✕</button>
+                </div>
                 <span class="verdict ${verdictClass(r.verdict.opinion)}" style="font-size:10px;padding:2px 8px">${verdictLabel(r.verdict.opinion)}</span>
               </th>
             `).join("")}
@@ -575,6 +578,46 @@ function render() {
 function selectTicker(t) {
   selectedTicker = t;
   render();
+}
+
+async function deleteReport(ticker, date, type) {
+  if (!confirm(`${ticker} ${date} (${type}) 리포트를 삭제하시겠습니까?`)) return;
+
+  try {
+    // GitHub에서 현재 데이터 읽기
+    const resp = await fetch("https://raw.githubusercontent.com/hong4137/investment/main/data/reports.json?" + Date.now());
+    const allReports = await resp.json();
+
+    // 해당 리포트 제거
+    const filtered = allReports.filter(r =>
+      !(r.meta.ticker === ticker && r.meta.report_date === date && r.meta.report_type === type)
+    );
+
+    if (filtered.length === allReports.length) {
+      alert("해당 리포트를 찾을 수 없습니다.");
+      return;
+    }
+
+    // Worker를 통해 GitHub에 저장 (Worker에 delete 엔드포인트가 없으므로 직접 GitHub API 호출)
+    // GitHub token은 Worker에만 있으므로, Worker에 삭제 요청을 보냄
+    const delResp = await fetch(WORKER_URL + "?action=delete", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ticker, report_date: date, report_type: type })
+    });
+    const delData = await delResp.json();
+
+    if (delData.success) {
+      reports = reports.filter(r =>
+        !(r.meta.ticker === ticker && r.meta.report_date === date && r.meta.report_type === type)
+      );
+      render();
+    } else {
+      alert("삭제 실패: " + (delData.error || "알 수 없는 오류"));
+    }
+  } catch (err) {
+    alert("삭제 오류: " + err.message);
+  }
 }
 
 async function handleUpload(e) {
