@@ -143,41 +143,6 @@
     "meta": {
       "ticker": "AMZN",
       "company_name": "Amazon.com",
-      "report_date": "2026-02-08",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Accumulate",
-      "conviction": "8.5/10",
-      "conviction_numeric": 8.5,
-      "winning_probability": "약 75%"
-    },
-    "price_levels": {
-      "bull_target": null,
-      "primary_target": "$285",
-      "base_target": "$226",
-      "ideal_entry": "$198 ~ $210",
-      "accumulate_zone": "$198 ~ $210",
-      "hard_stop_loss": "$188",
-      "bear_case_floor": null,
-      "current_price_at_writing": null
-    },
-    "key_risks": [
-      "프로젝트 카이퍼 자금 잠식",
-      "2,000억 달러 CapEx 쇼크",
-      "FCF 71% 급감"
-    ],
-    "key_catalysts": [
-      "로보틱스 기반 물류 혁명",
-      "트레이니움 3 AWS 마진 방어",
-      "디지털 광고 22% 성장"
-    ],
-    "one_thing": "시장은 2,000억 달러의 '지출 쇼크'에 매몰되어 있으나, 본질은 수직 계열화와 로보틱스를 통해 '압도적 원가 지배력'을 구축하는 마지막 퍼즐 조각을 맞추는 과정이다."
-  },
-  {
-    "meta": {
-      "ticker": "AMZN",
-      "company_name": "Amazon.com",
       "report_date": "2026-03-05",
       "report_type": "CIO 승인서"
     },
