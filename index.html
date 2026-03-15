@@ -323,6 +323,20 @@ tr:hover { background: var(--surface-alt); }
   border-radius: 4px;
 }
 
+.event-target {
+  color: var(--yellow);
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--yellow-dim);
+  padding: 3px 8px;
+  border-radius: 5px;
+  display: inline-block;
+  line-height: 1.4;
+  max-width: 180px;
+  white-space: normal;
+  text-align: center;
+}
+
 .conviction-cell { font-family: var(--mono); font-size: 13px; font-weight: 700; }
 
 .table-footer {
@@ -589,8 +603,15 @@ function render() {
         return `<span class="price-stop" title="숏 손절 (상방)">${val} <span style="font-size:9px;opacity:0.6">상방손절</span></span>`;
       if (key === "accumulate_zone")
         return `<span class="price-entry" title="숏 추가 진입">${val} <span style="font-size:9px;opacity:0.6">숏추가</span></span>`;
-      if (key === "bear_target")
-        return `<span class="price-bear" title="숏 목표가">${val} <span style="font-size:9px;opacity:0.6">숏목표↓</span></span>`;
+      if (key === "bear_target") {
+        // 가격인지 이벤트 텍스트인지 판별 (숫자/$로 시작하거나 원/원대 포함이면 가격)
+        const isPrice = /^[\$\d₩￦]|원$|원대$/.test(val.replace(/[\s,]/g,""));
+        if (isPrice) {
+          return `<span class="price-bear" title="숏 목표가">${val} <span style="font-size:9px;opacity:0.6">숏목표↓</span></span>`;
+        } else {
+          return `<span class="event-target" title="이벤트 드리븐 숏 트리거">${val}</span>`;
+        }
+      }
     }
     return `<span class="price-${defaultType}">${val}</span>`;
   }
