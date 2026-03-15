@@ -356,6 +356,42 @@
     "meta": {
       "ticker": "MU",
       "company_name": "Micron Technology",
+      "report_date": "2026-01-10",
+      "report_type": "분석 보고서"
+    },
+    "verdict": {
+      "opinion": "Accumulate",
+      "conviction": "Medium-High",
+      "conviction_numeric": 7.5,
+      "winning_probability": null
+    },
+    "price_levels": {
+      "accumulate_zone": "$320 - $330",
+      "base_target": null,
+      "bear_case_floor": "$280",
+      "bear_target": "$280",
+      "bull_target": "$380 - $400",
+      "current_price_at_writing": "$345.09",
+      "hard_stop_loss": "$310",
+      "ideal_entry": "$320 - $330",
+      "primary_target": null
+    },
+    "key_risks": [
+      "내부자 매도",
+      "Netlist 소송 리스크",
+      "중국 시장 상실"
+    ],
+    "key_catalysts": [
+      "HBM 웨이퍼 잠식 효과",
+      "HBM 매출 비중 확대",
+      "2026년 HBM 전량 매진"
+    ],
+    "one_thing": "HBM 생산에 따른 구조적 공급 제약과 이익의 질적 전환으로 AI 인프라 유틸리티 기업으로 밸류에이션 리레이팅 진행 중."
+  },
+  {
+    "meta": {
+      "ticker": "MU",
+      "company_name": "Micron Technology",
       "report_date": "2026-01-18",
       "report_type": "CIO 승인서"
     },
