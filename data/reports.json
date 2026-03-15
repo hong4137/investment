@@ -38,6 +38,41 @@
     "meta": {
       "ticker": "352820.KS",
       "company_name": "HYBE",
+      "report_date": "2026-02-03",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Strong Buy",
+      "conviction": "8.5/10",
+      "conviction_numeric": 8.5,
+      "winning_probability": "75%"
+    },
+    "price_levels": {
+      "accumulate_zone": "335,000원 ~ 345,000원",
+      "base_target": null,
+      "bear_case_floor": null,
+      "bear_target": null,
+      "bull_target": "480,000원",
+      "current_price_at_writing": "369,500원",
+      "hard_stop_loss": "310,000원",
+      "ideal_entry": "350,000원 ~ 360,000원",
+      "primary_target": "420,000원"
+    },
+    "key_risks": [
+      "방시혁 의장 사법 리스크",
+      "NewJeans 브랜드 이미지 훼손"
+    ],
+    "key_catalysts": [
+      "BTS 투어 레버리지 효과",
+      "공매도 숏 스퀴즈 유발",
+      "2026년 실적 퀀텀 점프"
+    ],
+    "one_thing": "현재 시장은 '거버넌스 노이즈'라는 공포에 갇혀, 2026년 영업이익 555% 폭증(Quantum Jump)이라는 '실적의 쓰나미'를 과소평가하고 있다."
+  },
+  {
+    "meta": {
+      "ticker": "352820.KS",
+      "company_name": "HYBE",
       "report_date": "2026-03-15",
       "report_type": "CIO 승인서"
     },
