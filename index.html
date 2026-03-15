@@ -575,7 +575,24 @@ function render() {
     </div>`;
   }
 
-  // ── Bull/Bear 2-Column Table
+  // ── Bull/Bear 2-Column Table (direction-aware per cell)
+  // 숏 리포트에서 가격 셀 렌더 — 방향 힌트 표시
+  function dirPriceHtml(r, key, defaultType) {
+    const val = r.price_levels[key];
+    if (!val) return '<span class="price-null">—</span>';
+    if (val === "진입 금지") return '<span class="price-warning">진입 금지</span>';
+    const short = isShortVerdict(r.verdict.opinion);
+    if (short) {
+      if (key === "ideal_entry")
+        return `<span class="price-stop" title="숏 진입가">${val} <span style="font-size:9px;opacity:0.6">숏진입</span></span>`;
+      if (key === "hard_stop_loss")
+        return `<span class="price-stop" title="숏 손절 (상방)">${val} <span style="font-size:9px;opacity:0.6">상방손절</span></span>`;
+      if (key === "accumulate_zone")
+        return `<span class="price-entry" title="숏 추가 진입">${val} <span style="font-size:9px;opacity:0.6">숏추가</span></span>`;
+    }
+    return `<span class="price-${defaultType}">${val}</span>`;
+  }
+
   const BULL_ROWS = [
     { key:"bull_target", label:"🟢 Bull Target", type:"bull" },
     { key:"primary_target", label:"📍 1차 목표가", type:"target" },
@@ -620,21 +637,21 @@ function render() {
           ${BULL_ROWS.map(row=>`
             <tr class="row-bull">
               <td>${row.label}</td>
-              ${filtered.map(r=>`<td>${priceHtml(r.price_levels[row.key],row.type)}</td>`).join("")}
+              ${filtered.map(r=>`<td>${dirPriceHtml(r,row.key,row.type)}</td>`).join("")}
             </tr>`).join("")}
 
-          <tr class="section-divider"><td colspan="${colSpan}">◆ ENTRY ZONE — 진입 구간</td></tr>
+          <tr class="section-divider"><td colspan="${colSpan}">◆ ENTRY ZONE — 진입 구간 <span style="font-size:10px;color:var(--text-dim)">(숏: 매도 진입가)</span></td></tr>
           ${ENTRY_ROWS.map(row=>`
             <tr>
               <td>${row.label}</td>
-              ${filtered.map(r=>`<td>${priceHtml(r.price_levels[row.key],row.type)}</td>`).join("")}
+              ${filtered.map(r=>`<td>${dirPriceHtml(r,row.key,row.type)}</td>`).join("")}
             </tr>`).join("")}
 
-          <tr class="section-divider"><td colspan="${colSpan}">▼ BEAR SIDE — 하방 / 손절</td></tr>
+          <tr class="section-divider"><td colspan="${colSpan}">▼ BEAR SIDE — 하방 / 손절 <span style="font-size:10px;color:var(--text-dim)">(숏: 상방 손절)</span></td></tr>
           ${BEAR_ROWS.map(row=>`
             <tr class="row-bear">
               <td>${row.label}</td>
-              ${filtered.map(r=>`<td>${priceHtml(r.price_levels[row.key],row.type)}</td>`).join("")}
+              ${filtered.map(r=>`<td>${dirPriceHtml(r,row.key,row.type)}</td>`).join("")}
             </tr>`).join("")}
 
           <tr class="section-divider"><td colspan="${colSpan}">📋 META</td></tr>
@@ -662,6 +679,7 @@ function render() {
       <span style="color:var(--purple)">💎</span> Entry Zone ·
       <span style="color:var(--red)">🔴</span> Bear Side (손절/하방)
       &nbsp;|&nbsp; 날짜 옆 🟢/🔴 = 리포트 방향(롱/숏)
+      &nbsp;|&nbsp; 숏 리포트 셀에 <span style="opacity:0.6;font-size:10px">숏진입</span> <span style="opacity:0.6;font-size:10px">상방손절</span> 힌트 표시
       &nbsp;|&nbsp; 탭 더블클릭 → 이름 수정
     </div>
   </div>`;
