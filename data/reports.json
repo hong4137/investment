@@ -460,6 +460,42 @@
   },
   {
     "meta": {
+      "ticker": "ORCL",
+      "company_name": "Oracle Corporation",
+      "report_date": "2026-01-14",
+      "report_type": "분석 보고서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "High",
+      "conviction_numeric": 9,
+      "winning_probability": null
+    },
+    "price_levels": {
+      "accumulate_zone": "$150~$160",
+      "base_target": null,
+      "bear_case_floor": null,
+      "bear_target": "$140~$150",
+      "bull_target": null,
+      "current_price_at_writing": "$193.61",
+      "hard_stop_loss": null,
+      "ideal_entry": "$150 이하",
+      "primary_target": null
+    },
+    "key_risks": [
+      "내부자 매도",
+      "R&D 과소투자",
+      "RPO의 부실화 가능성"
+    ],
+    "key_catalysts": [
+      "멀티클라우드 전략",
+      "Nvidia 동맹 및 AI 니치 마켓",
+      "데이터 중력 및 Lock-in 효과"
+    ],
+    "one_thing": "내부자 매도와 밸류에이션 괴리: CEO 사프라 캣츠(Safra Catz)의 25억 달러 규모 매도 및 이사회의 집단적 차익 실현은 현재 주가(PER ~36x)가 펀더멘털 대비 과도함을 시사하는 가장 강력한 선행 지표다."
+  },
+  {
+    "meta": {
       "ticker": "PANW",
       "company_name": "Palo Alto Networks",
       "report_date": "2026-03-04",
