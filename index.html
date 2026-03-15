@@ -576,13 +576,25 @@ function render() {
   }
 
   // ── Bull/Bear 2-Column Table (direction-aware per cell)
-  // 숏 리포트에서 가격 셀 렌더 — 방향 힌트 표시
+  // 숏 리포트에서 가격 셀 렌더 — 방향 힌트 + 빈 Bull Target에 Bear 값 대체 표시
   function dirPriceHtml(r, key, defaultType) {
     const val = r.price_levels[key];
+    const short = isShortVerdict(r.verdict.opinion);
+
+    // 숏 리포트: Bull Target 비어있으면 → Bear Target / Bear Case 하단으로 대체
+    if (short && key === "bull_target" && !val) {
+      const fallback = r.price_levels.bear_target || r.price_levels.bear_case_floor;
+      if (fallback) {
+        return `<span class="price-bear" title="숏 방향 목표가">${fallback} <span style="font-size:9px;opacity:0.6">숏목표↓</span></span>`;
+      }
+    }
+
     if (!val) return '<span class="price-null">—</span>';
     if (val === "진입 금지") return '<span class="price-warning">진입 금지</span>';
-    const short = isShortVerdict(r.verdict.opinion);
+
     if (short) {
+      if (key === "bull_target")
+        return `<span class="price-null" title="숏 리포트 — 상방 목표 없음">— <span style="font-size:9px;opacity:0.6">숏</span></span>`;
       if (key === "ideal_entry")
         return `<span class="price-stop" title="숏 진입가">${val} <span style="font-size:9px;opacity:0.6">숏진입</span></span>`;
       if (key === "hard_stop_loss")
