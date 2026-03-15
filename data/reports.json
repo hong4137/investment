@@ -384,40 +384,5 @@
       "순현금 전환 + FCF $3.9B"
     ],
     "one_thing": null
-  },
-  {
-    "meta": {
-      "ticker": "MU",
-      "company_name": "Micron Technology",
-      "report_date": "2026-01-18",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Accumulate",
-      "conviction": "8.5/10",
-      "conviction_numeric": 8.5,
-      "winning_probability": "75%"
-    },
-    "price_levels": {
-      "bull_target": "$400",
-      "primary_target": "$380",
-      "base_target": null,
-      "ideal_entry": "$335~$340",
-      "accumulate_zone": "$335~$340",
-      "hard_stop_loss": "$315",
-      "bear_case_floor": null,
-      "current_price_at_writing": null
-    },
-    "key_risks": [
-      "CEO $70M 주식 매도",
-      "넷리스트 ITC 수입금지 리스크",
-      "FCF 20% 정부보조금 의존"
-    ],
-    "key_catalysts": [
-      "감마 스퀴즈 ($380~$400)",
-      "지정학적 유동성 블랙홀",
-      "숏커버링 부재 (진공 상태)"
-    ],
-    "one_thing": "지금 마이크론은 단순한 반도체 기업이 아니라, '미국 기술 패권'이라는 내러티브와 'AI 인프라'라는 희소성이 결합된 유동성의 블랙홀이다."
   }
 ]
