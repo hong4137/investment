@@ -283,36 +283,38 @@
   {
     "meta": {
       "ticker": "LRCX",
-      "company_name": "램리서치",
+      "company_name": "Lam Research",
       "report_date": "2026-02-19",
       "report_type": "CIO 승인서"
     },
     "verdict": {
-      "opinion": "Strong Sell",
-      "conviction": "9/10",
-      "conviction_numeric": 9,
-      "winning_probability": "25%"
+      "opinion": "Accumulate",
+      "conviction": "64 / 100",
+      "conviction_numeric": 64,
+      "winning_probability": "Upside 60% vs. Downside 40%"
     },
     "price_levels": {
-      "accumulate_zone": null,
+      "accumulate_zone": "$230 ~ $235",
       "base_target": null,
-      "bear_case_floor": null,
-      "bear_target": "$170 - $180",
+      "bear_case_floor": "$230",
+      "bear_target": null,
       "bull_target": null,
       "current_price_at_writing": "$237.39",
-      "hard_stop_loss": "$224",
-      "ideal_entry": "$170 - $180",
+      "hard_stop_loss": "$230",
+      "ideal_entry": "$230 ~ $235",
       "primary_target": null
     },
     "key_risks": [
-      "중국 매출 절벽 및 규제 강화",
-      "환경 부채 (PFAS 규제)",
-      "과도한 밸류에이션 (P/E 48배)"
+      "대중(對中) 수출통제/규제 강화",
+      "메모리 가격 급등 후 수요 파괴",
+      "높은 P/E와 과도한 기대치"
     ],
     "key_catalysts": [
-      "HBM4 공정 장비 수요 폭증"
+      "2H 출하/매출 가시화 및 가이던스 상향",
+      "HBM 중심 메모리 Capex 유지",
+      "WFE 업사이클 모멘텀"
     ],
-    "one_thing": "시장은 'AI 슈퍼 사이클'이라는 신기루에 취해 있으나, 내부자들은 이미 엑시트(Exit) 중이며 수주 선행 지표는 '피크 아웃'의 경고음을 내뱉고 있다."
+    "one_thing": "이 종목은 ‘좋은 실적’이 아니라 ‘실적 상향의 연속'이 있어야만 멀티플이 유지된다."
   },
   {
     "meta": {
