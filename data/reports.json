@@ -529,5 +529,41 @@
       "엣지 AI 플랫폼 성장"
     ],
     "one_thing": "공포는 가격에 반영되었고(Priced-in), 성장은 공짜 옵션(Free Option)으로 거래되고 있다. 단, CEO의 매도는 신뢰의 할인 요소다."
+  },
+  {
+    "meta": {
+      "ticker": "QCOM",
+      "company_name": "QUALCOMM Incorporated",
+      "report_date": "2026-03-13",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "8/10",
+      "conviction_numeric": 8,
+      "winning_probability": "75%"
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": "$120",
+      "bear_target": "$120",
+      "bull_target": null,
+      "current_price_at_writing": "$129.82",
+      "hard_stop_loss": "$131.80",
+      "ideal_entry": "신규 매수 금지",
+      "primary_target": "$140.00 ~ $145.50"
+    },
+    "key_risks": [
+      "애플 발 매출 절벽 및 Nuvia 이탈",
+      "모바일 캐시카우 영구적 훼손",
+      "경영진 자사주 고점 매도 및 보안 은폐"
+    ],
+    "key_catalysts": [
+      "3~4월 옵션 만기 숏 커버링 랠리",
+      "Arm 소송 개시",
+      "숏 스퀴즈 및 감마 스퀴즈 발생"
+    ],
+    "one_thing": "12.9배의 표면적 저평가는 매수 기회가 아니라, 애플 발(發) 70억 달러 매출 절벽과 핵심 아키텍트(Nuvia) 이탈이라는 구조적 붕괴를 내부자 대규모 매도로 확인시켜 준 치명적인 '가치 함정(Value Trap)'이다."
   }
 ]
