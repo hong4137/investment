@@ -71,42 +71,6 @@
   },
   {
     "meta": {
-      "ticker": "352820.KS",
-      "company_name": "HYBE",
-      "report_date": "2026-03-15",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Strong Sell",
-      "conviction": "9.5/10",
-      "conviction_numeric": 9.5,
-      "winning_probability": "85%"
-    },
-    "price_levels": {
-      "accumulate_zone": null,
-      "base_target": null,
-      "bear_case_floor": null,
-      "bear_target": "21만 원대",
-      "bull_target": null,
-      "current_price_at_writing": "361,500원",
-      "hard_stop_loss": "385,000원",
-      "ideal_entry": "366,500원 ~ 370,000원",
-      "primary_target": null
-    },
-    "key_risks": [
-      "오너 사법 리스크",
-      "옵션 딜러 폭포수 매도",
-      "핵심 크리에이터 자본 파괴"
-    ],
-    "key_catalysts": [
-      "3월 20일 앨범 발매",
-      "3월 26일 어도어 소송",
-      "재료 노출(Sell the News)"
-    ],
-    "one_thing": "방탄소년단(BTS)의 완벽한 귀환이라는 내러티브는 이미 37배의 Forward PER에 한 치의 오차 없이 100% 선반영(Priced-in)되어 있으나, 시장은 1,900억 원대 오너 사법 리스크와 옵션 딜러들의 기계적 폭포수 매도(Waterfall Decline) 뇌관을 철저히 외면하고 있습니다."
-  },
-  {
-    "meta": {
       "ticker": "AMAT",
       "company_name": "Applied Materials",
       "report_date": "2026-01-11",
