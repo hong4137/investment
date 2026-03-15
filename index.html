@@ -23,8 +23,10 @@
   --accent-glow2: rgba(77,142,255,0.06);
   --green: #00d68f;
   --green-dim: rgba(0,214,143,0.1);
+  --green-border: rgba(0,214,143,0.25);
   --red: #ff4757;
   --red-dim: rgba(255,71,87,0.1);
+  --red-border: rgba(255,71,87,0.25);
   --yellow: #ffa502;
   --yellow-dim: rgba(255,165,2,0.1);
   --purple: #a78bfa;
@@ -50,7 +52,7 @@ body {
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 
-.container { max-width: 1280px; margin: 0 auto; padding: 28px 24px; }
+.container { max-width: 1360px; margin: 0 auto; padding: 28px 24px; }
 
 /* ── Header ── */
 .header {
@@ -78,7 +80,7 @@ body {
 }
 .header-main span { color: var(--accent); }
 
-.ticker-tabs { display: flex; gap: 4px; }
+.ticker-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
 .ticker-tab {
   font-family: var(--mono);
   font-size: 13px;
@@ -90,12 +92,32 @@ body {
   color: var(--text-dim);
   cursor: pointer;
   transition: all 0.2s;
+  position: relative;
 }
 .ticker-tab:hover { border-color: var(--border-hover); color: var(--text-muted); }
 .ticker-tab.active {
   background: var(--accent-glow);
   border-color: var(--accent);
   color: var(--accent);
+}
+.ticker-tab .edit-icon {
+  display: none;
+  margin-left: 4px;
+  font-size: 10px;
+  opacity: 0.5;
+}
+.ticker-tab:hover .edit-icon { display: inline; }
+.ticker-rename-input {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--accent);
+  background: var(--surface-alt);
+  color: var(--accent);
+  outline: none;
+  width: 120px;
 }
 
 /* ── Latest Card ── */
@@ -113,6 +135,14 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 2px;
+}
+.latest-card.direction-long::before {
+  background: linear-gradient(90deg, var(--green), #00b37a, var(--green));
+}
+.latest-card.direction-short::before {
+  background: linear-gradient(90deg, var(--red), #d63447, var(--red));
+}
+.latest-card.direction-neutral::before {
   background: linear-gradient(90deg, var(--accent), var(--purple), var(--accent));
 }
 .latest-header {
@@ -133,6 +163,31 @@ body {
 }
 .latest-company { font-size: 14px; color: var(--text-muted); }
 .latest-date { font-size: 12px; color: var(--text-dim); font-family: var(--mono); }
+
+/* ── Direction Banner ── */
+.direction-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 700;
+}
+.direction-banner.long {
+  background: var(--green-dim);
+  border: 1px solid var(--green-border);
+  color: var(--green);
+}
+.direction-banner.short {
+  background: var(--red-dim);
+  border: 1px solid var(--red-border);
+  color: var(--red);
+}
+.direction-banner .dir-label { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+.direction-banner .dir-price { font-size: 20px; font-weight: 800; }
 
 .one-thing {
   background: var(--surface-alt);
@@ -214,7 +269,7 @@ body {
 }
 .table-header h3 { font-size: 14px; font-weight: 700; }
 .table-scroll { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; min-width: 750px; }
+table { width: 100%; border-collapse: collapse; min-width: 800px; }
 thead { background: var(--surface-alt); }
 th {
   padding: 11px 12px;
@@ -237,6 +292,20 @@ td:first-child { text-align: left; padding-left: 22px; font-weight: 600; }
 tr:last-child td { border-bottom: none; }
 tr:hover { background: var(--surface-alt); }
 .row-highlight { background: var(--surface-alt); }
+
+.row-bull { background: rgba(0,214,143,0.03); }
+.row-bear { background: rgba(255,71,87,0.03); }
+
+.section-divider td {
+  padding: 4px 22px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+}
 
 .price-bull { color: var(--green); font-family: var(--mono); font-size: 13px; font-weight: 500; }
 .price-target { color: var(--accent); font-family: var(--mono); font-size: 13px; font-weight: 500; }
@@ -354,6 +423,8 @@ let selectedTicker = "MU";
 let dataLoaded = false;
 let parsing = false;
 let parseResult = null;
+let editingTicker = null;
+let tickerAliases = JSON.parse(localStorage.getItem("tickerAliases") || "{}");
 
 // ═══════════════════════════════════════════════
 // HELPERS
@@ -365,26 +436,27 @@ function fmtDate(d) {
 
 function verdictClass(opinion) {
   const map = {
-    "Strong Buy": "verdict-strong-buy",
-    "Buy": "verdict-buy",
-    "Accumulate": "verdict-accumulate",
-    "Hold": "verdict-hold",
-    "Reduce": "verdict-reduce",
-    "Strong Sell": "verdict-strong-sell",
+    "Strong Buy": "verdict-strong-buy", "Buy": "verdict-buy",
+    "Accumulate": "verdict-accumulate", "Hold": "verdict-hold",
+    "Reduce": "verdict-reduce", "Strong Sell": "verdict-strong-sell",
   };
   return map[opinion] || "verdict-hold";
 }
 
 function verdictLabel(opinion) {
   const map = {
-    "Strong Buy": "강력 매수",
-    "Buy": "매수",
-    "Accumulate": "분할매수",
-    "Hold": "보유",
-    "Reduce": "비중축소",
-    "Strong Sell": "강력 매도",
+    "Strong Buy": "강력 매수", "Buy": "매수", "Accumulate": "분할매수",
+    "Hold": "보유", "Reduce": "비중축소", "Strong Sell": "강력 매도",
   };
   return map[opinion] || opinion;
+}
+
+function isLongVerdict(op) { return ["Strong Buy","Buy","Accumulate"].includes(op); }
+function isShortVerdict(op) { return ["Reduce","Strong Sell"].includes(op); }
+function getDirection(op) {
+  if (isLongVerdict(op)) return "long";
+  if (isShortVerdict(op)) return "short";
+  return "neutral";
 }
 
 function priceHtml(val, type) {
@@ -400,15 +472,12 @@ function convictionColor(v) {
   return "var(--red)";
 }
 
-function getTickers() {
-  return [...new Set(reports.map(r => r.meta.ticker))];
-}
-
+function getTickers() { return [...new Set(reports.map(r => r.meta.ticker))]; }
 function getFiltered() {
-  return reports
-    .filter(r => r.meta.ticker === selectedTicker)
+  return reports.filter(r => r.meta.ticker === selectedTicker)
     .sort((a, b) => a.meta.report_date.localeCompare(b.meta.report_date));
 }
+function getTickerDisplay(t) { return tickerAliases[t] || t; }
 
 // ═══════════════════════════════════════════════
 // RENDER
@@ -417,17 +486,6 @@ function render() {
   const tickers = getTickers();
   const filtered = getFiltered();
   const latest = filtered[filtered.length - 1];
-
-  const ROWS = [
-    { key: "bull_target", label: "Bull Target (최고)", icon: "🎯", type: "bull" },
-    { key: "primary_target", label: "1차 목표가", icon: "📍", type: "target" },
-    { key: "base_target", label: "Base Target", icon: "📊", type: "target" },
-    { key: "ideal_entry", label: "이상적 진입 (Ideal)", icon: "💎", type: "entry" },
-    { key: "accumulate_zone", label: "분할매수 구간", icon: "🛒", type: "entry" },
-    { key: "hard_stop_loss", label: "Hard Stop-Loss", icon: "⚠️", type: "stop" },
-    { key: "bear_case_floor", label: "Bear Case 하단", icon: "🔴", type: "bear" },
-  ];
-
   let html = "";
 
   // ── Header
@@ -438,17 +496,29 @@ function render() {
       <div class="header-main"><span>CIO</span> Dashboard</div>
     </div>
     <div class="ticker-tabs">
-      ${tickers.map(t => `
-        <button class="ticker-tab ${t === selectedTicker ? 'active' : ''}" onclick="selectTicker('${t}')">${t}</button>
-      `).join("")}
+      ${tickers.map(t => {
+        if (editingTicker === t) {
+          return `<input class="ticker-rename-input" id="renameInput" value="${getTickerDisplay(t)}"
+            onblur="finishRename('${t}')"
+            onkeydown="if(event.key==='Enter')finishRename('${t}');if(event.key==='Escape'){editingTicker=null;render()}"
+            autofocus>`;
+        }
+        return `<button class="ticker-tab ${t === selectedTicker ? 'active' : ''}"
+          onclick="selectTicker('${t}')"
+          ondblclick="event.stopPropagation();startRename('${t}')"
+          title="더블클릭으로 이름 수정">${getTickerDisplay(t)}<span class="edit-icon">✎</span></button>`;
+      }).join("")}
     </div>
   </div>`;
 
   // ── Latest Card
   if (latest) {
     const cv = latest.verdict.conviction_numeric;
+    const dir = getDirection(latest.verdict.opinion);
+    const dirClass = dir === "long" ? "direction-long" : dir === "short" ? "direction-short" : "direction-neutral";
+
     html += `
-    <div class="latest-card animate-in" style="animation-delay: 0.05s">
+    <div class="latest-card ${dirClass} animate-in" style="animation-delay:0.05s">
       <div class="latest-header">
         <div class="latest-ticker">
           <h2>${latest.meta.ticker}</h2>
@@ -457,210 +527,250 @@ function render() {
           ${latest.verdict.winning_probability ? `<span style="font-family:var(--mono);font-size:12px;color:var(--text-dim)">WP ${latest.verdict.winning_probability}</span>` : ""}
         </div>
         <span class="latest-date">${fmtDate(latest.meta.report_date)} · ${latest.meta.report_type}</span>
-      </div>
+      </div>`;
+
+    // Direction Banner
+    if (dir === "long" && latest.price_levels.bull_target) {
+      html += `
+      <div class="direction-banner long">
+        <span style="font-size:20px">🟢</span>
+        <div>
+          <div class="dir-label">Bull Target — 방향: 롱</div>
+          <div class="dir-price">${latest.price_levels.bull_target}</div>
+        </div>
+      </div>`;
+    } else if (dir === "short") {
+      const bt = latest.price_levels.bear_target || latest.price_levels.bear_case_floor;
+      if (bt) {
+        html += `
+        <div class="direction-banner short">
+          <span style="font-size:20px">🔴</span>
+          <div>
+            <div class="dir-label">Bear Target — 방향: 숏</div>
+            <div class="dir-price">${bt}</div>
+          </div>
+        </div>`;
+      }
+    }
+
+    html += `
       ${latest.one_thing ? `<div class="one-thing">"${latest.one_thing}"</div>` : ""}
       <div class="latest-grid">
         <div>
           <div class="latest-section-title">확신도 Conviction</div>
           <div class="conviction-value" style="color:${convictionColor(cv)}">${cv.toFixed(1)}<span style="font-size:13px;color:var(--text-dim)">/10</span></div>
           <div class="conviction-bar-track" style="margin-top:6px">
-            <div class="conviction-bar-fill" style="width:${cv * 10}%;background:${convictionColor(cv)}"></div>
+            <div class="conviction-bar-fill" style="width:${cv*10}%;background:${convictionColor(cv)}"></div>
           </div>
         </div>
         <div>
           <div class="latest-section-title">핵심 리스크 Key Risks</div>
-          ${(latest.key_risks || []).filter(Boolean).map(r => `<div class="risk-item">${r}</div>`).join("")}
+          ${(latest.key_risks||[]).filter(Boolean).map(r=>`<div class="risk-item">${r}</div>`).join("")}
         </div>
         <div>
           <div class="latest-section-title">핵심 촉매 Catalysts</div>
-          ${(latest.key_catalysts || []).filter(Boolean).map(c => `<div class="catalyst-item">${c}</div>`).join("")}
+          ${(latest.key_catalysts||[]).filter(Boolean).map(c=>`<div class="catalyst-item">${c}</div>`).join("")}
         </div>
       </div>
     </div>`;
   }
 
-  // ── Comparison Table
+  // ── Bull/Bear 2-Column Table
+  const BULL_ROWS = [
+    { key:"bull_target", label:"🟢 Bull Target", type:"bull" },
+    { key:"primary_target", label:"📍 1차 목표가", type:"target" },
+    { key:"base_target", label:"📊 Base Target", type:"target" },
+  ];
+  const ENTRY_ROWS = [
+    { key:"ideal_entry", label:"💎 이상적 진입", type:"entry" },
+    { key:"accumulate_zone", label:"🛒 분할매수 구간", type:"entry" },
+  ];
+  const BEAR_ROWS = [
+    { key:"hard_stop_loss", label:"⚠️ Hard Stop-Loss", type:"stop" },
+    { key:"bear_target", label:"🔴 Bear Target", type:"bear" },
+    { key:"bear_case_floor", label:"🔻 Bear Case 하단", type:"bear" },
+  ];
+
+  const colSpan = filtered.length + 1;
+
   html += `
-  <div class="table-card animate-in" style="animation-delay: 0.1s">
+  <div class="table-card animate-in" style="animation-delay:0.1s">
     <div class="table-header">
-      <h3>리포트별 가격 레벨 비교 — ${selectedTicker}</h3>
+      <h3>Bull / Bear 가격 레벨 비교 — ${getTickerDisplay(selectedTicker)}</h3>
       <span style="font-size:11px;color:var(--text-dim)">${filtered.length}개 리포트</span>
     </div>
     <div class="table-scroll">
       <table>
-        <thead>
-          <tr>
-            <th>가격 구분</th>
-            ${filtered.map((r, i) => `
-              <th>
-                <div style="display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:4px">
-                  <span>${fmtDate(r.meta.report_date)}</span>
-                  <button onclick="deleteReport('${r.meta.ticker}','${r.meta.report_date}','${r.meta.report_type}')" style="background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:11px;padding:1px 4px;border-radius:3px;line-height:1;opacity:0.4;transition:all 0.2s" onmouseover="this.style.opacity=1;this.style.color='var(--red)'" onmouseout="this.style.opacity=0.4;this.style.color='var(--text-dim)'" title="이 리포트 삭제">✕</button>
-                </div>
-                <span class="verdict ${verdictClass(r.verdict.opinion)}" style="font-size:10px;padding:2px 8px">${verdictLabel(r.verdict.opinion)}</span>
-              </th>
-            `).join("")}
-          </tr>
-        </thead>
+        <thead><tr>
+          <th>가격 구분</th>
+          ${filtered.map(r => {
+            const d = getDirection(r.verdict.opinion);
+            const icon = d==="long"?"🟢":d==="short"?"🔴":"🟡";
+            return `<th>
+              <div style="display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:4px">
+                <span>${icon} ${fmtDate(r.meta.report_date)}</span>
+                <button onclick="deleteReport('${r.meta.ticker}','${r.meta.report_date}','${r.meta.report_type}')" style="background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:11px;padding:1px 4px;border-radius:3px;line-height:1;opacity:0.4;transition:all 0.2s" onmouseover="this.style.opacity=1;this.style.color='var(--red)'" onmouseout="this.style.opacity=0.4;this.style.color='var(--text-dim)'" title="삭제">✕</button>
+              </div>
+              <span class="verdict ${verdictClass(r.verdict.opinion)}" style="font-size:10px;padding:2px 8px">${verdictLabel(r.verdict.opinion)}</span>
+            </th>`;
+          }).join("")}
+        </tr></thead>
         <tbody>
-          ${ROWS.map(row => `
+          <tr class="section-divider"><td colspan="${colSpan}">▲ BULL SIDE — 목표가</td></tr>
+          ${BULL_ROWS.map(row=>`
+            <tr class="row-bull">
+              <td>${row.label}</td>
+              ${filtered.map(r=>`<td>${priceHtml(r.price_levels[row.key],row.type)}</td>`).join("")}
+            </tr>`).join("")}
+
+          <tr class="section-divider"><td colspan="${colSpan}">◆ ENTRY ZONE — 진입 구간</td></tr>
+          ${ENTRY_ROWS.map(row=>`
             <tr>
-              <td>${row.icon} ${row.label}</td>
-              ${filtered.map(r => `<td>${priceHtml(r.price_levels[row.key], row.type)}</td>`).join("")}
-            </tr>
-          `).join("")}
+              <td>${row.label}</td>
+              ${filtered.map(r=>`<td>${priceHtml(r.price_levels[row.key],row.type)}</td>`).join("")}
+            </tr>`).join("")}
+
+          <tr class="section-divider"><td colspan="${colSpan}">▼ BEAR SIDE — 하방 / 손절</td></tr>
+          ${BEAR_ROWS.map(row=>`
+            <tr class="row-bear">
+              <td>${row.label}</td>
+              ${filtered.map(r=>`<td>${priceHtml(r.price_levels[row.key],row.type)}</td>`).join("")}
+            </tr>`).join("")}
+
+          <tr class="section-divider"><td colspan="${colSpan}">📋 META</td></tr>
           <tr class="row-highlight">
             <td>🏷️ <strong>투자의견</strong></td>
-            ${filtered.map(r => `<td><span class="verdict ${verdictClass(r.verdict.opinion)}">${verdictLabel(r.verdict.opinion)}</span></td>`).join("")}
+            ${filtered.map(r=>`<td><span class="verdict ${verdictClass(r.verdict.opinion)}">${verdictLabel(r.verdict.opinion)}</span></td>`).join("")}
           </tr>
           <tr>
             <td>📊 <strong>확신도</strong></td>
-            ${filtered.map(r => `
-              <td><span class="conviction-cell" style="color:${convictionColor(r.verdict.conviction_numeric)}">${r.verdict.conviction}</span></td>
-            `).join("")}
+            ${filtered.map(r=>`<td><span class="conviction-cell" style="color:${convictionColor(r.verdict.conviction_numeric)}">${r.verdict.conviction}</span></td>`).join("")}
           </tr>
           <tr class="row-highlight">
             <td>🗓️ <strong>작성 시점 주가</strong></td>
-            ${filtered.map(r => `<td><span class="conviction-cell" style="color:var(--text-muted)">${r.price_levels.current_price_at_writing || '—'}</span></td>`).join("")}
+            ${filtered.map(r=>`<td><span class="conviction-cell" style="color:var(--text-muted)">${r.price_levels.current_price_at_writing||'—'}</span></td>`).join("")}
+          </tr>
+          <tr>
+            <td>📈 <strong>승률</strong></td>
+            ${filtered.map(r=>`<td><span style="font-family:var(--mono);font-size:12px;color:var(--text-muted)">${r.verdict.winning_probability||'—'}</span></td>`).join("")}
           </tr>
         </tbody>
       </table>
     </div>
     <div class="table-footer">
-      ※ <span style="color:var(--green)">녹색</span>은 목표가 ·
-      <span style="color:var(--accent)">파란색</span>은 기준 레벨 ·
-      <span style="color:var(--purple)">보라색</span>은 진입 구간 ·
-      <span style="color:var(--red)">빨간색</span>은 손절/경고
-      &nbsp;|&nbsp; CIO 승인서 기준 최종 유효값 참조
+      <span style="color:var(--green)">🟢</span> Bull Side (목표가) ·
+      <span style="color:var(--purple)">💎</span> Entry Zone ·
+      <span style="color:var(--red)">🔴</span> Bear Side (손절/하방)
+      &nbsp;|&nbsp; 날짜 옆 🟢/🔴 = 리포트 방향(롱/숏)
+      &nbsp;|&nbsp; 탭 더블클릭 → 이름 수정
     </div>
   </div>`;
 
-  // ── Upload Section
+  // ── Upload
   html += `
-  <div class="upload-card animate-in" style="animation-delay: 0.15s">
+  <div class="upload-card animate-in" style="animation-delay:0.15s">
     <h3>📄 리포트 파싱 — PDF/MD 업로드</h3>
     <div class="upload-row">
       <input type="text" class="upload-input" style="flex:1;min-width:280px" value="${WORKER_URL}" id="workerUrlInput" placeholder="Cloudflare Worker URL">
     </div>
     <div class="upload-row">
       <input type="file" accept=".pdf,.md,.txt" id="fileInput" style="display:none" onchange="handleUpload(event)">
-      <button class="upload-btn" onclick="document.getElementById('fileInput').click()" id="uploadBtn" ${parsing ? "disabled" : ""}>
-        ${parsing ? "⏳ 파싱 중..." : "📎 PDF/MD 업로드 & 파싱"}
+      <button class="upload-btn" onclick="document.getElementById('fileInput').click()" id="uploadBtn" ${parsing?"disabled":""}>
+        ${parsing?"⏳ 파싱 중...":"📎 PDF/MD 업로드 & 파싱"}
       </button>
       <span class="upload-hint">CIO 승인서 또는 분석 보고서를 업로드하면 자동으로 비교표에 추가됩니다</span>
     </div>
-    ${parseResult ? `
+    ${parseResult?`
       <div class="parse-result">
-        <div class="${parseResult.error ? 'parse-err' : 'parse-ok'}">
-          ${parseResult.error ? '❌ 오류: ' + parseResult.error : '✅ 파싱 성공' + (parseResult._saved ? ' · GitHub 저장 완료' : ' · 저장 실패 (새로고침 시 사라짐)')}
+        <div class="${parseResult.error?'parse-err':'parse-ok'}">
+          ${parseResult.error?'❌ 오류: '+parseResult.error:'✅ 파싱 성공'+(parseResult._saved?' · GitHub 저장 완료':' · 저장 실패')}
         </div>
-        <div class="parse-json">${JSON.stringify(parseResult.error ? parseResult : parseResult, null, 2)}</div>
-      </div>
-    ` : ""}
+        <div class="parse-json">${JSON.stringify(parseResult,null,2)}</div>
+      </div>`:""}
   </div>`;
 
   // ── Footer
   html += `
-  <div class="footer-note animate-in" style="animation-delay: 0.2s">
+  <div class="footer-note animate-in" style="animation-delay:0.2s">
     <strong style="color:var(--text-muted)">⚙️ 설정 가이드</strong><br>
     1. <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>에서 Gemini API 키 발급<br>
     2. Cloudflare Worker에 secret 등록 후 배포<br>
     3. PDF 업로드 시 Gemini 2.5 Flash가 자동 파싱 → 비교표 추가<br>
-    4. 추천 모델: <code>gemini-2.5-flash</code> (무료 10 RPM / 250 RPD)
+    4. 추천 모델: <code>gemini-2.5-flash</code> (무료 10 RPM / 250 RPD)<br>
+    5. <code>bear_target</code> 필드가 있으면 Bear Target 행에 표시, 없으면 bear_case_floor 사용
   </div>`;
 
   document.getElementById("app").innerHTML = html;
+  if (editingTicker) {
+    const inp = document.getElementById("renameInput");
+    if (inp) { inp.focus(); inp.select(); }
+  }
+}
+
+// ═══════════════════════════════════════════════
+// TICKER RENAME
+// ═══════════════════════════════════════════════
+function startRename(ticker) {
+  editingTicker = ticker;
+  selectedTicker = ticker;
+  render();
+}
+function finishRename(ticker) {
+  const inp = document.getElementById("renameInput");
+  if (inp) {
+    const v = inp.value.trim();
+    if (v && v !== ticker) tickerAliases[ticker] = v;
+    else delete tickerAliases[ticker];
+    localStorage.setItem("tickerAliases", JSON.stringify(tickerAliases));
+  }
+  editingTicker = null;
+  render();
 }
 
 // ═══════════════════════════════════════════════
 // ACTIONS
 // ═══════════════════════════════════════════════
-function selectTicker(t) {
-  selectedTicker = t;
-  render();
-}
+function selectTicker(t) { selectedTicker = t; render(); }
 
 async function deleteReport(ticker, date, type) {
   if (!confirm(`${ticker} ${date} (${type}) 리포트를 삭제하시겠습니까?`)) return;
-
   try {
-    // GitHub에서 현재 데이터 읽기
-    const resp = await fetch("https://raw.githubusercontent.com/hong4137/investment/main/data/reports.json?" + Date.now());
-    const allReports = await resp.json();
-
-    // 해당 리포트 제거
-    const filtered = allReports.filter(r =>
-      !(r.meta.ticker === ticker && r.meta.report_date === date && r.meta.report_type === type)
-    );
-
-    if (filtered.length === allReports.length) {
-      alert("해당 리포트를 찾을 수 없습니다.");
-      return;
-    }
-
-    // Worker를 통해 GitHub에 저장 (Worker에 delete 엔드포인트가 없으므로 직접 GitHub API 호출)
-    // GitHub token은 Worker에만 있으므로, Worker에 삭제 요청을 보냄
     const delResp = await fetch(WORKER_URL + "?action=delete", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ticker, report_date: date, report_type: type })
     });
     const delData = await delResp.json();
-
     if (delData.success) {
-      reports = reports.filter(r =>
-        !(r.meta.ticker === ticker && r.meta.report_date === date && r.meta.report_type === type)
-      );
+      reports = reports.filter(r => !(r.meta.ticker===ticker && r.meta.report_date===date && r.meta.report_type===type));
       render();
     } else {
       alert("삭제 실패: " + (delData.error || "알 수 없는 오류"));
     }
-  } catch (err) {
-    alert("삭제 오류: " + err.message);
-  }
+  } catch (err) { alert("삭제 오류: " + err.message); }
 }
 
 async function handleUpload(e) {
   const file = e.target.files?.[0];
   if (!file) return;
-
-  parsing = true;
-  parseResult = null;
-  render();
-
+  parsing = true; parseResult = null; render();
   try {
     const url = document.getElementById("workerUrlInput")?.value || WORKER_URL;
-    const formData = new FormData();
-    formData.append("file", file);
-
-    const resp = await fetch(url, { method: "POST", body: formData });
+    const fd = new FormData(); fd.append("file", file);
+    const resp = await fetch(url, { method: "POST", body: fd });
     const data = await resp.json();
-
     if (!data.success) throw new Error(data.error || "파싱 실패");
-
     const parsed = data.data;
-    const saved = data.saved;
-    parseResult = { ...parsed, _saved: saved };
-
-    // 중복 체크 후 추가
-    const exists = reports.some(
-      r => r.meta.ticker === parsed.meta.ticker && r.meta.report_date === parsed.meta.report_date && r.meta.report_type === parsed.meta.report_type
-    );
-    if (!exists) {
-      reports.push(parsed);
-    }
+    parseResult = { ...parsed, _saved: data.saved };
+    const exists = reports.some(r => r.meta.ticker===parsed.meta.ticker && r.meta.report_date===parsed.meta.report_date && r.meta.report_type===parsed.meta.report_type);
+    if (!exists) reports.push(parsed);
     selectedTicker = parsed.meta.ticker;
-  } catch (err) {
-    parseResult = { error: err.message };
-  } finally {
-    parsing = false;
-    document.getElementById("fileInput").value = "";
-    render();
-  }
+  } catch (err) { parseResult = { error: err.message }; }
+  finally { parsing = false; document.getElementById("fileInput").value = ""; render(); }
 }
 
 // ═══════════════════════════════════════════════
-// INIT — JSON에서 데이터 로드
+// INIT
 // ═══════════════════════════════════════════════
 async function init() {
   document.getElementById("app").innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-dim)">📊 데이터 로딩 중...</div>';
@@ -668,13 +778,9 @@ async function init() {
     const resp = await fetch("https://raw.githubusercontent.com/hong4137/investment/main/data/reports.json?" + Date.now());
     if (resp.ok) {
       reports = await resp.json();
-      if (reports.length > 0) {
-        selectedTicker = reports[reports.length - 1].meta.ticker;
-      }
+      if (reports.length > 0) selectedTicker = reports[reports.length - 1].meta.ticker;
     }
-  } catch (e) {
-    console.error("Failed to load reports:", e);
-  }
+  } catch (e) { console.error("Failed to load reports:", e); }
   dataLoaded = true;
   render();
 }
@@ -682,4 +788,3 @@ init();
 </script>
 </body>
 </html>
-
