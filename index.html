@@ -816,12 +816,24 @@ async function handleUpload(e) {
 async function init() {
   document.getElementById("app").innerHTML = '<div style="text-align:center;padding:60px;color:var(--text-dim)">📊 데이터 로딩 중...</div>';
   try {
-    const resp = await fetch("https://raw.githubusercontent.com/hong4137/investment/main/data/reports.json?" + Date.now());
+    // GitHub API로 직접 조회 (CDN 캐시 우회, 항상 최신)
+    const resp = await fetch("https://api.github.com/repos/hong4137/investment/contents/data/reports.json?" + Date.now(), {
+      headers: { "Accept": "application/vnd.github.v3.raw" }
+    });
     if (resp.ok) {
       reports = await resp.json();
       if (reports.length > 0) selectedTicker = reports[reports.length - 1].meta.ticker;
     }
-  } catch (e) { console.error("Failed to load reports:", e); }
+  } catch (e) {
+    // fallback: raw.githubusercontent
+    try {
+      const resp2 = await fetch("https://raw.githubusercontent.com/hong4137/investment/main/data/reports.json?" + Date.now());
+      if (resp2.ok) {
+        reports = await resp2.json();
+        if (reports.length > 0) selectedTicker = reports[reports.length - 1].meta.ticker;
+      }
+    } catch (e2) { console.error("Failed to load reports:", e2); }
+  }
   dataLoaded = true;
   render();
 }
