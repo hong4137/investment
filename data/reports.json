@@ -493,5 +493,41 @@
       "견조한 현금 창출력 및 NRR"
     ],
     "one_thing": "펀더멘털(현금창출력 및 고객 유지율)은 세계 최고 수준이나, 280억 달러 규모의 공격적 M&A로 인한 막대한 주식 희석과 내부자(CEO)의 대규모 고점 매도가 단기 주가 상승의 발목을 잡고 있습니다."
+  },
+  {
+    "meta": {
+      "ticker": "QCOM",
+      "company_name": "Qualcomm Inc.",
+      "report_date": "2026-01-18",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Accumulate",
+      "conviction": "7.8/10",
+      "conviction_numeric": 7.8,
+      "winning_probability": "75%"
+    },
+    "price_levels": {
+      "accumulate_zone": "$158 ~ $162",
+      "base_target": "$175",
+      "bear_case_floor": "$150",
+      "bear_target": "$150",
+      "bull_target": "$190",
+      "current_price_at_writing": "$159.42",
+      "hard_stop_loss": "$150",
+      "ideal_entry": "$158 ~ $162",
+      "primary_target": "$175"
+    },
+    "key_risks": [
+      "CEO 지분 매도",
+      "중국 SAMR 조사 및 매출 의존도",
+      "높은 재고 및 마진 압박"
+    ],
+    "key_catalysts": [
+      "어닝 가이던스 갭 해소",
+      "갤럭시 S26 점유율 방어",
+      "엣지 AI 플랫폼 성장"
+    ],
+    "one_thing": "공포는 가격에 반영되었고(Priced-in), 성장은 공짜 옵션(Free Option)으로 거래되고 있다. 단, CEO의 매도는 신뢰의 할인 요소다."
   }
 ]
