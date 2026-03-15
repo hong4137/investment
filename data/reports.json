@@ -319,7 +319,7 @@
   {
     "meta": {
       "ticker": "MU",
-      "company_name": "Micron Technology",
+      "company_name": "Micron Technology, Inc.",
       "report_date": "2026-01-05",
       "report_type": "분석 보고서"
     },
@@ -330,25 +330,26 @@
       "winning_probability": null
     },
     "price_levels": {
-      "bull_target": "$480",
-      "primary_target": "$386",
-      "base_target": "$386",
-      "ideal_entry": null,
       "accumulate_zone": "$280~$300",
+      "base_target": "$386",
+      "bear_case_floor": null,
+      "bear_target": "~$250",
+      "bull_target": "$480",
+      "current_price_at_writing": "$312.15",
       "hard_stop_loss": "~$250",
-      "bear_case_floor": "$250",
-      "current_price_at_writing": null
+      "ideal_entry": "$280~$300",
+      "primary_target": "$386"
     },
     "key_risks": [
-      "내부자 매도 시그널",
-      "삼성 HBM 수율 안정화",
-      "매크로 쇼크 (AI CapEx 축소)"
+      "내부자 매도",
+      "HBM4 하이브리드 본딩 지연",
+      "삼성전자 캐파 증설"
     ],
     "key_catalysts": [
-      "HBM 전량 매진 (Sold-out)",
-      "AI 인프라 필수재 리레이팅",
-      "지정학적 미국 프리미엄"
+      "구조적 공급자 우위 고착화",
+      "AI 필수재 밸류에이션 리레이팅",
+      "지정학적 헤지 및 안보 프리미엄"
     ],
-    "one_thing": null
+    "one_thing": "본 종목은 현재 '구조적 성장(Secular Growth)'과 '매크로 불확실성'이 충돌하는 변곡점에 있으나, 산업의 공급 제약 요인이 그 어느 때보다 강력합니다. 단기 밸류에이션 부담 논란은 '이익의 질' 변화를 간과한 것입니다."
   }
 ]
