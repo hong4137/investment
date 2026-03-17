@@ -247,6 +247,42 @@
   },
   {
     "meta": {
+      "ticker": "AMZN",
+      "company_name": "Amazon.com, Inc.",
+      "report_date": "2026-03-05",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Accumulate",
+      "conviction": "8 / 10 (장기 펀더멘털 기준)",
+      "conviction_numeric": 8,
+      "winning_probability": "75% (18~24개월 시계열)"
+    },
+    "price_levels": {
+      "accumulate_zone": "$200~$205",
+      "base_target": null,
+      "bear_case_floor": null,
+      "bear_target": null,
+      "bull_target": null,
+      "current_price_at_writing": "$218.94",
+      "hard_stop_loss": "$195",
+      "ideal_entry": "$200~$205",
+      "primary_target": null
+    },
+    "key_risks": [
+      "영업이익 압축 (Margin Compression)",
+      "Trainium3 양산 수율 이슈",
+      "AWS 매출 성장률 둔화"
+    ],
+    "key_catalysts": [
+      "AWS 수주 잔고 폭증",
+      "디지털 광고 사업 성장",
+      "물류 내재화 경쟁 우위"
+    ],
+    "one_thing": "2,000억 달러의 자본 지출은 단순한 현금 소각이 아니라, 물리적 물류망과 디지털 AI 인프라, 그리고 우주 궤도(Leo)를 완벽히 통제하여 경쟁자가 감히 모방할 수 없는 '하이퍼 버티컬 독점 생태계'를 완성하는 최종 마스터스트로크다."
+  },
+  {
+    "meta": {
       "ticker": "LRCX",
       "company_name": "Lam Research",
       "report_date": "2026-02-19",
