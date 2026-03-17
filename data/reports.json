@@ -532,6 +532,42 @@
   },
   {
     "meta": {
+      "ticker": "ORCL",
+      "company_name": "Oracle Corporation",
+      "report_date": "2026-03-18",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Strong Sell",
+      "conviction": "9.5 / 10",
+      "conviction_numeric": 9.5,
+      "winning_probability": "85%"
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": "$118 ~ $120",
+      "bear_target": "$118 ~ $120",
+      "bull_target": null,
+      "current_price_at_writing": "$154.77",
+      "hard_stop_loss": "글로벌 매크로 연착륙 또는 OpenAI/Meta 계약",
+      "ideal_entry": null,
+      "primary_target": null
+    },
+    "key_risks": [
+      "RPO의 환상과 고객 대체 위협",
+      "자본 파괴적 효율성",
+      "조직적 기만과 내부자 엑시트"
+    ],
+    "key_catalysts": [
+      "파생 딜러 네거티브 감마",
+      "블루 아울 투자 철회",
+      "경영진 대규모 지분 매도"
+    ],
+    "one_thing": "시장은 5,530억 달러의 RPO(잔여수행의무)라는 장밋빛 신기루에 환호하고 있으나, 그 이면에는 고객의 변심 한 번에 증발할 수 있는 모래성과 3,850억 달러가 넘는 통제 불능의 그림자 부채가 숨어 있습니다. 스마트 머니와 내부자들은 이미 구명정을 타고 이 배를 떠났습니다."
+  },
+  {
+    "meta": {
       "ticker": "PANW",
       "company_name": "Palo Alto Networks",
       "report_date": "2026-03-04",
