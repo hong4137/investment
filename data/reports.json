@@ -247,41 +247,6 @@
   },
   {
     "meta": {
-      "ticker": "AMZN",
-      "company_name": "Amazon.com",
-      "report_date": "2026-03-05",
-      "report_type": "CIO 승인서"
-    },
-    "verdict": {
-      "opinion": "Reduce",
-      "conviction": "9/10",
-      "conviction_numeric": 9,
-      "winning_probability": "85%"
-    },
-    "price_levels": {
-      "bull_target": null,
-      "primary_target": null,
-      "base_target": null,
-      "ideal_entry": "$180 ~ $188",
-      "accumulate_zone": null,
-      "hard_stop_loss": "$161.38",
-      "bear_case_floor": "$180",
-      "current_price_at_writing": "$208.73"
-    },
-    "key_risks": [
-      "중동 데이터센터 피폭 자산 손상",
-      "AI 파트너 블랙리스트 지정",
-      "CapEx 2,000억 달러 FCF 적자 전환"
-    ],
-    "key_catalysts": [
-      "물류 수직계열화 및 초자동화",
-      "로봇 자동화 126억 달러 비용 절감",
-      "2027년 이후 인프라 이익 창출"
-    ],
-    "one_thing": "2,000억 달러의 초거대 자본 지출로 인한 FCF 적자 전환과 중동 데이터센터 피폭이라는 치명적 악재가 월스트리트의 낙관적 컨센서스에 아직 반영되지 않았다."
-  },
-  {
-    "meta": {
       "ticker": "LRCX",
       "company_name": "Lam Research",
       "report_date": "2026-02-19",
