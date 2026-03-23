@@ -141,6 +141,41 @@
   },
   {
     "meta": {
+      "ticker": "475150.KQ",
+      "company_name": "SK이터닉스",
+      "report_date": "2026-03-24",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Strong Sell",
+      "conviction": "9.5 / 10",
+      "conviction_numeric": 9.5,
+      "winning_probability": "90% (하방 베팅 기준)"
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": null,
+      "bear_target": "약 30,000원",
+      "bull_target": null,
+      "current_price_at_writing": "59,900원",
+      "hard_stop_loss": null,
+      "ideal_entry": null,
+      "primary_target": null
+    },
+    "key_risks": [
+      "수익의 질 저하",
+      "소수 주주 강제 축출 위험",
+      "파생 시장 풋옵션 쏠림"
+    ],
+    "key_catalysts": [
+      "해외 자산 환차익 자연 헤지",
+      "신재생에너지법 개정안 통과"
+    ],
+    "one_thing": "지정학적 공포가 만들어낸 2조 원짜리 모래성은 유가 하락과 함께 붕괴 중이며, 남은 것은 조달 금리 폭등과 사모펀드의 무자비한 자본 추출(Value Extraction)뿐입니다."
+  },
+  {
+    "meta": {
       "ticker": "AMAT",
       "company_name": "Applied Materials",
       "report_date": "2026-01-11",
