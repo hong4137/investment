@@ -388,6 +388,38 @@
   },
   {
     "meta": {
+      "ticker": "MSFT",
+      "company_name": "Microsoft Corporation",
+      "report_date": "2026-03-29",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Strong Sell",
+      "conviction": "9.5",
+      "conviction_numeric": 9.5,
+      "winning_probability": "85%"
+    },
+    "price_levels": {
+      "accumulate_zone": ".",
+      "base_target": ".",
+      "bear_case_floor": ".",
+      "bear_target": "$300 ~ $320",
+      "bull_target": ".",
+      "current_price_at_writing": "$356.77",
+      "hard_stop_loss": "Azure 40% 성장 또는 Maia 200 롤아웃 입증",
+      "ideal_entry": "$382 부근",
+      "primary_target": "$300 ~ $320"
+    },
+    "key_risks": [
+      "매출 질적 붕괴 및 B2B 한계",
+      "내부자 선행 매매 및 평판 붕괴",
+      "물리적 병목 및 CapEx 소화 불량"
+    ],
+    "key_catalysts": [],
+    "one_thing": "시장은 6,250억 달러에 달하는 상업용 잔여수행의무(RPO)의 환상에 취해 있으나, 이 중 45%(약 2,810억 달러)가 흑자 생존 능력이 검증되지 않은 단일 파트너(OpenAI)에게 집중되어 있는 치명적인 대차대조표 상의 시한폭탄입니다. 설상가상으로 OpenAI는 오라클($300B), 아마존 AWS($38B)와 천문학적 인프라 계약을 체결하며 MSFT의 클라우드 독점권을 붕괴시키고 있습니다."
+  },
+  {
+    "meta": {
       "ticker": "MU",
       "company_name": "Micron Technology, Inc.",
       "report_date": "2026-01-05",
