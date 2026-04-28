@@ -352,6 +352,41 @@
   },
   {
     "meta": {
+      "ticker": "AVGO",
+      "company_name": "브로드컴",
+      "report_date": "2026-04-29",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Strong Sell",
+      "conviction": "9.5/10",
+      "conviction_numeric": 9.5,
+      "winning_probability": "15%"
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": null,
+      "bear_target": "$326",
+      "bull_target": null,
+      "current_price_at_writing": "$395.23",
+      "hard_stop_loss": "$443",
+      "ideal_entry": "$425~$430",
+      "primary_target": null
+    },
+    "key_risks": [
+      "내부자 엑소더스",
+      "BOM 풍선효과",
+      "수급 진공과 분배"
+    ],
+    "key_catalysts": [
+      "AI 가속기 및 이더넷 시스템 파트너십",
+      "스위칭 실리콘 시장 80% 독점"
+    ],
+    "one_thing": "펀더멘털의 무결성(Priced for Perfection)을 가정하고 부여된 79배의 PER과 73세 CEO의 1억 달러 이상 주식 투매는 양립할 수 없는 모순입니다. 스마트머니는 이미 다크풀을 통해 엑시트 중이며, 파생 시장의 감마"
+  },
+  {
+    "meta": {
       "ticker": "LRCX",
       "company_name": "Lam Research",
       "report_date": "2026-02-19",
