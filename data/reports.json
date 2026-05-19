@@ -329,22 +329,22 @@
     },
     "price_levels": {
       "accumulate_zone": "$180 - $188",
-      "base_target": ".",
-      "bear_case_floor": ".",
+      "base_target": null,
+      "bear_case_floor": "$161.38",
       "bear_target": "$180",
-      "bull_target": ".",
+      "bull_target": null,
       "current_price_at_writing": "$218.94",
-      "hard_stop_loss": "$220",
+      "hard_stop_loss": "$161.38",
       "ideal_entry": "$180 - $188",
-      "primary_target": "."
+      "primary_target": null
     },
     "key_risks": [
-      "중동 데이터센터 피폭 자산 손상차손",
-      "앤스로픽 블랙리스트로 AI 전략 난관",
-      "2,000억 달러 CapEx로 FCF 적자"
+      "중동 데이터센터 피폭 자산 손상",
+      "앤스로픽 블랙리스트 지정",
+      "2,000억 달러 CapEx FCF 적자"
     ],
     "key_catalysts": [
-      "물류 완전 수직 계열화 및 초자동화",
+      "물류 수직계열화 및 초자동화",
       "2025-2027년 126억 달러 비용 절감",
       "2027년 이후 인프라 이익 창출"
     ],
