@@ -882,5 +882,41 @@
       "숏 스퀴즈 및 감마 스퀴즈 발생"
     ],
     "one_thing": "12.9배의 표면적 저평가는 매수 기회가 아니라, 애플 발(發) 70억 달러 매출 절벽과 핵심 아키텍트(Nuvia) 이탈이라는 구조적 붕괴를 내부자 대규모 매도로 확인시켜 준 치명적인 '가치 함정(Value Trap)'이다."
+  },
+  {
+    "meta": {
+      "ticker": "QCOM",
+      "company_name": "퀄컴 (Qualcomm)",
+      "report_date": "2026-06-27",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "분명히 조심해야 할 구간",
+      "conviction_numeric": 6.6,
+      "winning_probability": null
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": "$184",
+      "bear_case_floor": null,
+      "bear_target": "$146~$170",
+      "bull_target": null,
+      "current_price_at_writing": "$204.90",
+      "hard_stop_loss": null,
+      "ideal_entry": "$184",
+      "primary_target": null
+    },
+    "key_risks": [
+      "핵심 기술 인력 이탈",
+      "경영진의 고점 자동 매도",
+      "애플 모뎀 칩 매출 소멸"
+    ],
+    "key_catalysts": [
+      "데이터센터 사업 실증",
+      "자동차 반도체 매출 성장",
+      "특허 로열티 사업 견고"
+    ],
+    "one_thing": "퀄컴의 주가 상승 논리는 전적으로 '데이터센터 사업으로의 변신'이라는 단 하나의 베팅에 걸려 있는데, 정작 그 사업을 이끌던 핵심 기술 인력이 최근 회사를 떠났고, 동시에 최고경영진은 주가가 가장 높을 때 자기 주식을 자동으로 팔도록 미리 설정해 두었습니다."
   }
 ]
