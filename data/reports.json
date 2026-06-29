@@ -423,6 +423,42 @@
   },
   {
     "meta": {
+      "ticker": "AVGO",
+      "company_name": "브로드컴",
+      "report_date": "2026-06-27",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Hold",
+      "conviction": "58~66점",
+      "conviction_numeric": 58,
+      "winning_probability": null
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": "약 524달러",
+      "bear_case_floor": null,
+      "bear_target": "200일 이동평균선 361달러 붕괴 시",
+      "bull_target": null,
+      "current_price_at_writing": "$365.02",
+      "hard_stop_loss": null,
+      "ideal_entry": null,
+      "primary_target": "약 524달러"
+    },
+    "key_risks": [
+      "AI 투자 사이클 둔화",
+      "고객 집중도 심화",
+      "이익률 정점 통과"
+    ],
+    "key_catalysts": [
+      "AI 가이던스 상향",
+      "AI 설비투자 지속 증가",
+      "1,000억 달러 목표 계약 달성"
+    ],
+    "one_thing": "브로드컴은 AI 반도체에서 진짜로 강한, 질 좋은 회사입니다. 문제는 회사가 아니라 가격입니다."
+  },
+  {
+    "meta": {
       "ticker": "LRCX",
       "company_name": "Lam Research",
       "report_date": "2026-02-19",
