@@ -16,7 +16,7 @@
       "accumulate_zone": null,
       "base_target": null,
       "bear_case_floor": null,
-      "bear_target": "145,000원 지지선 붕괴 시",
+      "bear_target": "145,000원",
       "bull_target": null,
       "current_price_at_writing": "149,300원",
       "hard_stop_loss": null,
@@ -24,13 +24,13 @@
       "primary_target": null
     },
     "key_risks": [
-      "환율 상승으로 자사주 매입 여력 감소",
-      "9월 회장 선임 관련 정치적 개입",
-      "외국인 지분 착시 및 이탈 가능성"
+      "환율 상승으로 주주환원 제약",
+      "9월 회장 선임 정치적 개입",
+      "외국인 지분율 착시"
     ],
     "key_catalysts": [
-      "양 회장 연임 및 경영 연속성 확보",
-      "환율 1,480원 아래 안정화",
+      "양 회장 연임 및 경영 연속성",
+      "환율 1,480원 이하 안정화",
       "외국인 순매수 전환"
     ],
     "one_thing": "KB금융은 한국 1위의 탄탄한 금융그룹이고 '주주환원(배당·자사주)' 정책도 진짜이지만, 바로 그 주주환원이 지금 두 방향에서 동시에 조여지고 있습니다."
