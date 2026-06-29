@@ -1,6 +1,42 @@
 [
   {
     "meta": {
+      "ticker": "105560.KS",
+      "company_name": "KB금융지주",
+      "report_date": "2026-06-27",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Hold",
+      "conviction": "58~66점 수준",
+      "conviction_numeric": 62,
+      "winning_probability": null
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": null,
+      "bear_target": "145,000원",
+      "bull_target": null,
+      "current_price_at_writing": "149,300원",
+      "hard_stop_loss": null,
+      "ideal_entry": null,
+      "primary_target": null
+    },
+    "key_risks": [
+      "환율 상승으로 자사주 매입 여력 감소",
+      "9월 회장 선임 관련 정치적 리스크",
+      "지배구조 개편안 및 연임 규제 강화"
+    ],
+    "key_catalysts": [
+      "ELS 충당금 환입 및 추가 자사주 매입",
+      "양 회장 연임 및 환율 안정",
+      "한국 1위 금융그룹의 경쟁 우위"
+    ],
+    "one_thing": "KB금융은 한국 1위의 탄탄한 금융그룹이고 '주주환원(배당·자사주)' 정책도 진짜이지만, 바로 그 주주환원이 지금 두 방향에서 동시에 조여지고 있습니다."
+  },
+  {
+    "meta": {
       "ticker": "171090.KQ",
       "company_name": "선익시스템",
       "report_date": "2026-03-11",
