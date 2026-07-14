@@ -777,6 +777,42 @@
   },
   {
     "meta": {
+      "ticker": "NET",
+      "company_name": "클라우드플레어",
+      "report_date": "2026-07-15",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "70~78점",
+      "conviction_numeric": 70,
+      "winning_probability": "55~60%"
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": "$250",
+      "bear_case_floor": null,
+      "bear_target": "$247.50",
+      "bull_target": null,
+      "current_price_at_writing": "$282.40",
+      "hard_stop_loss": "$247.50",
+      "ideal_entry": null,
+      "primary_target": null
+    },
+    "key_risks": [
+      "마진 구조적 침식",
+      "AI 수익화 모델 폐기",
+      "경영진의 말과 행동 불일치"
+    ],
+    "key_catalysts": [
+      "AI 수요 구조 변화",
+      "30% 성장 지속",
+      "스코샤뱅크 강세론"
+    ],
+    "one_thing": "7월 30일 실적 발표 전 신규 매수를 회피하고, 보유분은 현재의 강세 구간에서 줄일 것을 권고합니다."
+  },
+  {
+    "meta": {
       "ticker": "ORCL",
       "company_name": "Oracle Corporation",
       "report_date": "2026-01-14",
