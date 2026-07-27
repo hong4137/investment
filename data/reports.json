@@ -778,38 +778,38 @@
   {
     "meta": {
       "ticker": "NET",
-      "company_name": "클라우드플레어",
+      "company_name": "클라우드플레어 (Cloudflare)",
       "report_date": "2026-07-15",
       "report_type": "CIO 승인서"
     },
     "verdict": {
       "opinion": "Reduce",
-      "conviction": "70~78점",
+      "conviction": "100점 만점에 70~78점",
       "conviction_numeric": 70,
-      "winning_probability": "55~60%"
+      "winning_probability": null
     },
     "price_levels": {
       "accumulate_zone": null,
-      "base_target": "$250",
+      "base_target": null,
       "bear_case_floor": null,
-      "bear_target": "$247.50",
+      "bear_target": null,
       "bull_target": null,
-      "current_price_at_writing": "$282.40",
+      "current_price_at_writing": "$273.04",
       "hard_stop_loss": "$247.50",
       "ideal_entry": null,
       "primary_target": null
     },
     "key_risks": [
-      "마진 구조적 침식",
+      "매출총이익률 목표 하향",
       "AI 수익화 모델 폐기",
       "경영진의 말과 행동 불일치"
     ],
     "key_catalysts": [
       "AI 수요 구조 변화",
-      "30% 성장 지속",
-      "스코샤뱅크 강세론"
+      "30% 성장 지속 및 가이던스 초과 달성",
+      "7월 30일 실적 호조 (매출, 가이던스, 마진)"
     ],
-    "one_thing": "7월 30일 실적 발표 전 신규 매수를 회피하고, 보유분은 현재의 강세 구간에서 줄일 것을 권고합니다."
+    "one_thing": "\"이 가격이 위험하다\"고 말하는 것입니다."
   },
   {
     "meta": {
