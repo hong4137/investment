@@ -388,6 +388,42 @@
   },
   {
     "meta": {
+      "ticker": "AMZN",
+      "company_name": "Amazon.com",
+      "report_date": "2026-07-23",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Accumulate",
+      "conviction": "Medium",
+      "conviction_numeric": 6,
+      "winning_probability": "약 55-60%"
+    },
+    "price_levels": {
+      "accumulate_zone": "1차 $233-240 / 2차 $225 / 3차 $205–196",
+      "base_target": "$313",
+      "bear_case_floor": "$196",
+      "bear_target": "$207",
+      "bull_target": "$370",
+      "current_price_at_writing": "$233.66",
+      "hard_stop_loss": "$205",
+      "ideal_entry": "$233–240 이하",
+      "primary_target": null
+    },
+    "key_risks": [
+      "7/30 이벤트 리스크(비대칭 하방)",
+      "이익의 질 훼손(실질 배수 40배대)",
+      "FCF 소멸과 부채 급증"
+    ],
+    "key_catalysts": [
+      "7/30 Q2 실적 발표",
+      "AWS 1위 클라우드 지위",
+      "광고 이익엔진 및 마진 개선"
+    ],
+    "one_thing": "AWS의 28% 성장(재가속 중이나 경쟁자 대비 열위) 이 연 2,000억 달러 투자를 감가상각·부채비용이 이익을 잠식하기 전에 고마진 클라우드 매출로 전환할 수 있는가"
+  },
+  {
+    "meta": {
       "ticker": "AVGO",
       "company_name": "브로드컴",
       "report_date": "2026-04-29",
