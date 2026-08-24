@@ -567,6 +567,42 @@
   },
   {
     "meta": {
+      "ticker": "META",
+      "company_name": "Meta Platforms",
+      "report_date": "2026-08-22",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Reduce",
+      "conviction": "52~62",
+      "conviction_numeric": 57,
+      "winning_probability": "55~65%"
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": "$500",
+      "bear_target": "$500",
+      "bull_target": "$702",
+      "current_price_at_writing": "$549.90",
+      "hard_stop_loss": "$520.26",
+      "ideal_entry": null,
+      "primary_target": null
+    },
+    "key_risks": [
+      "제품 강제 개조 명령",
+      "광고 단가 상승률 한 자릿수 둔화",
+      "취소 불가 약정 $100B 이상 추가 증가"
+    ],
+    "key_catalysts": [
+      "재판 승소 또는 $50B 이하 합의",
+      "자사주 매입 재개",
+      "2028년 이익 컨센 $35 이상 상향"
+    ],
+    "one_thing": "소송의 진짜 위험은 벌금이 아니라 제품 강제 개조이고, 그것이 정확히 애널리스트 목표주가를 떠받치는 단 하나의 변수를 겨냥한다."
+  },
+  {
+    "meta": {
       "ticker": "MSFT",
       "company_name": "Microsoft Corporation",
       "report_date": "2026-03-29",
