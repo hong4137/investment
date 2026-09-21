@@ -495,6 +495,42 @@
   },
   {
     "meta": {
+      "ticker": "AVGO",
+      "company_name": "브로드컴",
+      "report_date": "2026-09-22",
+      "report_type": "CIO 승인서"
+    },
+    "verdict": {
+      "opinion": "Hold",
+      "conviction": "62~70점",
+      "conviction_numeric": 6.6,
+      "winning_probability": null
+    },
+    "price_levels": {
+      "accumulate_zone": null,
+      "base_target": null,
+      "bear_case_floor": "$333",
+      "bear_target": "Bear 발동 시 매도",
+      "bull_target": "$430~530",
+      "current_price_at_writing": "$359.70",
+      "hard_stop_loss": "$333",
+      "ideal_entry": null,
+      "primary_target": null
+    },
+    "key_risks": [
+      "최대 고객 재무 건전성 악화",
+      "최대 고객 일감 분산",
+      "고객 자금조달 보증 위험"
+    ],
+    "key_catalysts": [
+      "12월 실적 AI 매출 확인",
+      "맞춤형 칩 시장 점유율 확대",
+      "독보적 기술 해자"
+    ],
+    "one_thing": "시장은 \"AI가 안 될 것\"이라 말하는 게 아니라, \"그 AI 매출이 브로드컴 몫으로 남을지\"를 의심하고 있습니다."
+  },
+  {
+    "meta": {
       "ticker": "GLW",
       "company_name": "코닝",
       "report_date": "2026-07-30",
