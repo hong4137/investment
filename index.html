@@ -438,6 +438,7 @@ td .event { max-width: 190px; white-space: normal; }
 // CONFIG / STATE
 // ═══════════════════════════════════════════════
 const WORKER_URL = "https://cio-parser.hong4137.workers.dev";
+const DATA_LOCAL = "data/reports.json";   // 같은 출처 우선 — GitHub 런타임 의존 제거 (리포 private 가능)
 const DATA_URL = "https://api.github.com/repos/hong4137/investment/contents/data/reports.json";
 const DATA_FALLBACK = "https://raw.githubusercontent.com/hong4137/investment/main/data/reports.json";
 const STALE_DAYS = 90;
@@ -975,7 +976,12 @@ async function uploadFile(file) {
 // INIT
 // ═══════════════════════════════════════════════
 async function loadReports() {
-  // GitHub API 우선 (CDN 캐시 우회) → raw 폴백
+  // 같은 출처 우선 → GitHub API (CDN 캐시 우회) → raw 폴백
+  // 같은 출처가 되면 리포를 private 으로 돌려도 데이터가 뜬다.
+  try {
+    const resp0 = await fetch(DATA_LOCAL + "?" + Date.now());
+    if (resp0.ok) return await resp0.json();
+  } catch (e) { /* 같은 출처에 파일이 없으면 아래로 */ }
   try {
     const resp = await fetch(DATA_URL + "?" + Date.now(), { headers: { "Accept": "application/vnd.github.v3.raw" } });
     if (!resp.ok) throw new Error("GitHub API " + resp.status);
