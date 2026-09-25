@@ -6,5 +6,10 @@
   "assets": {
     "directory": "./",
     "not_found_handling": "single-page-application"
-  }
+  },
+  // 커스텀 도메인을 설정으로 선언한다 (대시보드 UI 대신).
+  // 배포 시 Cloudflare 가 DNS 레코드까지 자동 생성한다.
+  "routes": [
+    { "pattern": "cio.sharktalk.co.kr", "custom_domain": true }
+  ]
 }
