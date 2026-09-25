@@ -1,0 +1,10 @@
+{
+  // CIO 투자 노트 — 정적 자산만 서빙하는 Worker (진입점 없음)
+  // Cloudflare Workers Static Assets 방식. `npx wrangler deploy` 로 배포된다.
+  "name": "investment",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "single-page-application"
+  }
+}
