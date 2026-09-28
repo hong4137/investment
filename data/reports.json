@@ -509,25 +509,25 @@
     "price_levels": {
       "accumulate_zone": null,
       "base_target": null,
-      "bear_case_floor": "$333",
-      "bear_target": "Bear 발동 시 매도",
+      "bear_case_floor": null,
+      "bear_target": "Bear 발동 → 매도",
       "bull_target": "$430~530",
-      "current_price_at_writing": "$359.70",
+      "current_price_at_writing": "$364.54",
       "hard_stop_loss": "$333",
       "ideal_entry": null,
       "primary_target": null
     },
     "key_risks": [
-      "최대 고객 재무 건전성 악화",
-      "최대 고객 일감 분산",
-      "고객 자금조달 보증 위험"
+      "$230B 계약 불확실성",
+      "주요 고객 재무 건전성 악화",
+      "최대 고객 일감 분산 시작"
     ],
     "key_catalysts": [
-      "12월 실적 AI 매출 확인",
-      "맞춤형 칩 시장 점유율 확대",
-      "독보적 기술 해자"
+      "맞춤형 AI 칩 시장 점유율 확대",
+      "뛰어난 기술 해자 보유",
+      "견고한 재무 건전성"
     ],
-    "one_thing": "시장은 \"AI가 안 될 것\"이라 말하는 게 아니라, \"그 AI 매출이 브로드컴 몫으로 남을지\"를 의심하고 있습니다."
+    "one_thing": "지켜볼 단 하나의 숫자: 12월 실적에서 FY2027 AI 매출 $115B 궤도(분기 $28~29B)를 실제로 밟고 있는지. 재무책임자가 \"분기마다 갱신 안 한다\"고 한 뒤 맞는 첫 채점일입니다."
   },
   {
     "meta": {
