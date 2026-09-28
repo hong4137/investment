@@ -1,15 +1,28 @@
 {
-  // CIO 투자 노트 — 정적 자산만 서빙하는 Worker (진입점 없음)
-  // Cloudflare Workers Static Assets 방식. `npx wrangler deploy` 로 배포된다.
+  // CIO 투자 노트 — 로그인 게이트 + 정적 자산
   "name": "investment",
+  "main": "worker.js",
   "compatibility_date": "2026-09-01",
+
   "assets": {
     "directory": "./",
-    "not_found_handling": "single-page-application"
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+
+    // ★ 필수: 이게 없으면 정적 파일이 존재할 때 Worker 가 아예 실행되지 않고
+    //   엣지가 파일을 바로 내보낸다 → 게이트가 무력화된다.
+    //   true 로 두어야 모든 요청이 먼저 Worker 를 거친다.
+    "run_worker_first": true
   },
-  // 커스텀 도메인을 설정으로 선언한다 (대시보드 UI 대신).
-  // 배포 시 Cloudflare 가 DNS 레코드까지 자동 생성한다.
+
   "routes": [
     { "pattern": "cio.sharktalk.co.kr", "custom_domain": true }
+  ],
+
+  "workers_dev": false,
+  "preview_urls": false,
+
+  "kv_namespaces": [
+    { "binding": "AUTH", "id": "984a6920775c4133b3e4b258c31e900e", "remote": true }
   ]
 }

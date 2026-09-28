@@ -2,4 +2,6 @@
 .gitignore
 .assetsignore
 wrangler.jsonc
+worker.js
+shared
 README.md
